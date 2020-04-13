@@ -27,7 +27,8 @@ h1,h2,h3,h4,h5,h6 {
 
 .highlight-container a {
   color: #b4d9ff !important;
-  text-decoration: underline !important;
+  text-decoration: none !important;
+  font-weight: bold !important;
 }
 
 .highlight-container a:hover {
@@ -447,6 +448,10 @@ text-shadow: 0px 4px 3px rgba(0, 0, 0, 0.4), 0px 8px 13px rgba(0, 0, 0, 0.1), 0p
 
 .large-blur {
 text-shadow: 0 0 1em rgba(0, 0, 0, 0.9);
+}
+
+.page_title {
+  
 }
 
 /*------------------------------HIGTHLIGHTER----------------------------------*/
