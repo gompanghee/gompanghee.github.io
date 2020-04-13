@@ -27,8 +27,7 @@ h1,h2,h3,h4,h5,h6 {
 
 .highlight-container a {
   color: #b4d9ff !important;
-  text-decoration: none !important;
-  font-weight: bold !important;
+  text-decoration: underline !important;
 }
 
 .highlight-container a:hover {
