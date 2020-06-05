@@ -2,7 +2,9 @@
 
 아래 링크에서 Python을 다운로드 받을 수 있습니다.
 
-{% page-ref page="install.md" %}
+{% embed url="http://python.org" %}
 
 
+
+여러가지 다양한 버전을 다운받아보고 싶다면 아래 링크에서 다운로드 할 수 있습니다.
 
