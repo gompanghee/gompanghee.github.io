@@ -1,8 +1,10 @@
 # Table of contents
 
 * [서론](README.md)
-* [준비하기](ready/README.md)
-  * [설치하기](ready/install.md)
+
+## 준비하기
+
+* [설치하기](undefined/install.md)
 
 ## Python 다루기
 
