@@ -1,10 +1,48 @@
 # 학습 환경
 
-예제 실습은 개인 컴퓨터에서 동작하는 Jupyter Lab과 구글 서버 컴퓨터에서 동작하는 Google CoLab 환경을 사용할 수 있습니다.
+예제 실습은 Jupyter Lab과 CoLab 환경 중 선택하여 사용할 수 있습니다.
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align:left">&#xAD6C;&#xBD84;</th>
+      <th style="text-align:left">Jupyter Lab</th>
+      <th style="text-align:left">Google CoLab</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align:left">&#xD2B9;</td>
+      <td style="text-align:left">&#xAC1C;&#xC778; &#xCEF4;&#xD4E8;&#xD130;&#xC5D0;&#xC11C; &#xB3D9;&#xC791;</td>
+      <td
+      style="text-align:left">&#xAD6C;&#xAE00; &#xC11C;&#xBC84;&#xC5D0;&#xC11C; &#xB3D9;&#xC791;</td>
+    </tr>
+    <tr>
+      <td style="text-align:left">&#xC7A5;&#xC810;</td>
+      <td style="text-align:left">
+        <ol>
+          <li>&#xC548;&#xC815;&#xC801;&#xC778; &#xB3D9;&#xC791;</li>
+          <li>&#xADF8;&#xB798;&#xD53D;(GUI) &#xC694;&#xC18C; &#xC0AC;&#xC6A9; &#xAC00;&#xB2A5;</li>
+          <li>&#xB370;&#xC774;&#xD130; &#xC720;&#xC2E4; &#xC704;&#xD5D8; &#xC5C6;</li>
+        </ol>
+      </td>
+      <td style="text-align:left"></td>
+    </tr>
+    <tr>
+      <td style="text-align:left">&#xB2E8;</td>
+      <td style="text-align:left">
+        <ol>
+          <li>&#xC131;&#xB2A5;&#xC774; &#xC88B;&#xC9C0; &#xC54A;&#xC73C;&#xBA74;</li>
+        </ol>
+      </td>
+      <td style="text-align:left"></td>
+    </tr>
+  </tbody>
+</table>
 
 {% tabs %}
 {% tab title="Jupyter" %}
-
+Jupyter는 별도 설치가 필요합니다.
 {% endtab %}
 
 {% tab title="CoLab" %}
