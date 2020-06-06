@@ -4,7 +4,8 @@
 
 ## 준비하기
 
-* [설치하기](undefined/install.md)
+* [설치](undefined/install.md)
+* [학습 환경](undefined/environment.md)
 
 ## Python 다루기
 
