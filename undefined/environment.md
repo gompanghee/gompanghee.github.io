@@ -12,7 +12,7 @@
   </thead>
   <tbody>
     <tr>
-      <td style="text-align:left">&#xD2B9;</td>
+      <td style="text-align:left">&#xD2B9;&#xC9D5;</td>
       <td style="text-align:left">&#xAC1C;&#xC778; &#xCEF4;&#xD4E8;&#xD130;&#xC5D0;&#xC11C; &#xB3D9;&#xC791;</td>
       <td
       style="text-align:left">&#xAD6C;&#xAE00; &#xC11C;&#xBC84;&#xC5D0;&#xC11C; &#xB3D9;&#xC791;</td>
@@ -23,19 +23,35 @@
         <ol>
           <li>&#xC548;&#xC815;&#xC801;&#xC778; &#xB3D9;&#xC791;</li>
           <li>&#xADF8;&#xB798;&#xD53D;(GUI) &#xC694;&#xC18C; &#xC0AC;&#xC6A9; &#xAC00;&#xB2A5;</li>
-          <li>&#xB370;&#xC774;&#xD130; &#xC720;&#xC2E4; &#xC704;&#xD5D8; &#xC5C6;</li>
+          <li>&#xB370;&#xC774;&#xD130; &#xC720;&#xC2E4; &#xC704;&#xD5D8; &#xC5C6;&#xC74C;</li>
         </ol>
       </td>
-      <td style="text-align:left"></td>
-    </tr>
-    <tr>
-      <td style="text-align:left">&#xB2E8;</td>
       <td style="text-align:left">
         <ol>
-          <li>&#xC131;&#xB2A5;&#xC774; &#xC88B;&#xC9C0; &#xC54A;&#xC73C;&#xBA74;</li>
+          <li>&#xCD5C;&#xACE0; &#xC131;&#xB2A5;&#xC774; &#xBCF4;&#xC7A5;&#xB418;&#xC5B4;
+            &#xC788;&#xC74C;</li>
+          <li>&#xACF5;&#xC720;&#xAC00; &#xB9E4;&#xC6B0; &#xC26C;</li>
         </ol>
       </td>
-      <td style="text-align:left"></td>
+    </tr>
+    <tr>
+      <td style="text-align:left">&#xB2E8;&#xC810;</td>
+      <td style="text-align:left">
+        <ol>
+          <li>PC &#xC131;&#xB2A5;&#xC774; &#xC88B;&#xC9C0; &#xC54A;&#xC73C;&#xBA74;
+            &#xC6D0;&#xD558;&#xB294; &#xB9CC;&#xD07C;&#xC758; &#xC131;&#xB2A5;&#xC744;
+            &#xAE30;&#xB300;&#xD560; &#xC218; &#xC5C6;&#xC74C;</li>
+          <li>&#xACF5;&#xC720;&#xAC00; &#xC5B4;&#xB824;</li>
+        </ol>
+      </td>
+      <td style="text-align:left">
+        <ol>
+          <li>&#xC8FC;&#xAE30;&#xC801;&#xC778; &#xB04A;&#xAE40;</li>
+          <li>&#xADF8;&#xB798;&#xD53D; &#xC694;&#xC18C; &#xC0AC;&#xC6A9;&#xC774; &#xC5B4;&#xB824;&#xC6C0;</li>
+          <li>&#xC5F0;&#xACB0;&#xC774; &#xD574;&#xC81C;&#xB418;&#xBA74; &#xB370;&#xC774;&#xD130;
+            &#xC0AD;&#xC81C;</li>
+        </ol>
+      </td>
     </tr>
   </tbody>
 </table>
