@@ -26,7 +26,7 @@ h1,h2,h3,h4,h5,h6 {
 }
 
 .highlight-container a {
-  color: #b4d9ff !important;
+  color: black !important;
   text-decoration: underline !important;
 }
 
@@ -56,8 +56,8 @@ p{
 
 #socialMenu{
 	position:fixed;
-	top: 10px;
-	right:10px;
+	bottom: 10px;
+	left:10px;
 	z-index: 999;
  }
 
@@ -449,10 +449,6 @@ text-shadow: 0px 4px 3px rgba(0, 0, 0, 0.4), 0px 8px 13px rgba(0, 0, 0, 0.1), 0p
 text-shadow: 0 0 1em rgba(0, 0, 0, 0.9);
 }
 
-.page_title {
-  
-}
-
 /*------------------------------HIGTHLIGHTER----------------------------------*/
 
 .highlight-container, .highlight {
@@ -472,13 +468,13 @@ margin-right: -3px;
 position: absolute;
 }
 .highlight-container:before {
-background: rgba(199, 199, 199, 0.7);
+background: rgba(255, 90, 113, 0.7);
 transform: rotate(2deg);
 top: -1px;
 left: -1px;
 }
 .highlight-container:after {
-background: rgba(150, 150, 150, 0.4);
+background: rgba(255, 126, 130, 0.4);
 top: 3px;
 right: -2px;
 }

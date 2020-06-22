@@ -1,12 +1,35 @@
-# 서론
+Jekyll FullIt Theme 
+======================
 
-이 책은 빠르게 배우고 쉽게 이해하고자 하는 초보자를 위해 작성되었습니다.
+Publish your static website/blog on GitHub Pages using [Jekyll](https://jekyllrb.com/), [Bootstrap 4](https://github.com/twbs/bootstrap/tree/v4-dev) and [fullpage.js](https://github.com/alvarotrigo/fullPage.js/).
 
-불필요한 문장을 줄이고 간결하고 정확히 설명하여 여러분들의 소중한 시간을 아끼고 이해는 정확히 하도록 하는 것을 목표로 했습니다.
+## Usage
 
-여러 메소드와 문법 그리고 라이브러리를 기준으로 실습을 먼저 진행하고 필요한 경우에 이론을 설명했습니다.
+### 1. Create a Repo
+- Go to <https://github.com> and create a new repository named *USERNAME.github.io*  
 
-{% hint style="info" %}
-그래서 서론도 필요한 내용만 작성하고 짧게 끝냅니다.
-{% endhint %}
+### 2. Install Jekyll-Bootstrap-3  
+<pre>
+  <code>
+    $ git clone https://github.com/fullit/fullit.github.io USERNAME.github.io
+    $ cd USERNAME.github.io
+    $ git remote set-url origin git@github.com:USERNAME/USERNAME.github.io.git
+    $ git push origin master  
+  </code>
+</pre> 
 
+### 3. Edit your website configuration
+
+Edit `_includes/themes/bootstrap/` to change information about your new website and also to remove the GitHub red ribbon ([default.html#26](https://fulliit.github.io)).
+
+### 4. Enjoy !
+- After giving 10 mins to GitHub of course.  
+
+## Demo
+
+Visit [Jekyll-Fullit](https://fullit.github.io) on GitHub Pages
+
+
+## License
+
+[MIT](http://opensource.org/licenses/MIT)
