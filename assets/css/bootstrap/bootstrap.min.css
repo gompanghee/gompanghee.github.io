@@ -354,7 +354,7 @@ html {
 }
 
 body {
-    font-family: -apple-system, system-ui, BlinkMacSystemFont, "Noto Sans KR", Roboto, "Ubuntu", Arial, sans-serif;
+    font-family: "Ubuntu", "Noto Sans KR", Arial, sans-serif;
     font-size: 1rem;
     font-weight: 400;
     line-height: 1.5;
@@ -6062,7 +6062,7 @@ button.close {
     position: absolute;
     z-index: 1070;
     display: block;
-    font-family: -apple-system, system-ui, BlinkMacSystemFont, "Noto Sans KR", Roboto, "Ubuntu", Arial, sans-serif;
+    font-family: "Ubuntu", "Noto Sans KR", Arial, sans-serif;
     font-style: normal;
     font-weight: 400;
     letter-spacing: normal;
@@ -6174,7 +6174,7 @@ button.close {
     display: block;
     max-width: 276px;
     padding: 1px;
-    font-family: -apple-system, system-ui, BlinkMacSystemFont, "Noto Sans KR", Roboto, "Ubuntu", Arial, sans-serif;
+    font-family: "Ubuntu", "Noto Sans KR", Arial, sans-serif;
     font-style: normal;
     font-weight: 400;
     letter-spacing: normal;
