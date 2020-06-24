@@ -417,7 +417,7 @@ p{
 }
 
 .pink {
-  color: #ff5a71;
+  color: #5a9cff;
 }
 
 
@@ -510,7 +510,7 @@ right: 0;
 .content__container:after, .content__container:before {
 position: absolute;
 top: 0;
-color: #ff5a71;
+color: #5a9cff;
 font-size: 42px;
 line-height: 40px;
 -webkit-animation-name: opacity;
@@ -681,7 +681,7 @@ margin: 0;
 
 .overlay ul li a:hover,
 .overlay ul li a:focus {
-	color: #ff1d3d;
+	color: #5a9cff;
 }
 
 /* Effects */
@@ -829,42 +829,42 @@ input.cbp-mc-submit {
 }
 
 input.cbp-mc-submit:hover {
-	background: #ff1d3d;
+	background: #5a9cff;
 }
 
 .post h1{
-	color: #ff5a71;
+	color: #5a9cff;
   line-height: 1.8;
   font-family: 'ubuntu';
   font-weight: 800;
 }
 
 .post h2{
-	color: #ff5a71;
+	color: #5a9cff;
   font-family: 'Ubuntu';
 	line-height: 1.8;
 }
 
 .post h3{
-	color: #ff5a71;
+	color: #5a9cff;
 	font-family: 'Ubuntu';
 	line-height: 1.8;
 }
 
 .post h4{
-	color: #ff5a71;
+	color: #5a9cff;
 	font-family: 'Ubuntu';
 	line-height: 1.8;
 }
 
 .post h5{
-	color: #ff5a71;
+	color: #5a9cff;
 	font-family: 'Ubuntu';
 	line-height: 1.8;
 }
 
 .post h6{
-	color: #ff5a71;
+	color: #5a9cff;
 	font-family: 'Ubuntu';
 	line-height: 1.8;
 }
