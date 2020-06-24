@@ -1,6 +1,6 @@
 @CHARSET "ISO-8859-1";
 
-@import url('https://fonts.googleapis.com/css?family=Ubuntu|Noto+Sans+KR&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR&family=Ubuntu:wght@500&display=swap');
 
 /* Reset CSS
  * --------------------------------------- */
@@ -8,7 +8,7 @@
 /* Custom CSS
  * --------------------------------------- */
 body{
-	font-family: 'Noto+Sans+KR', cursive;
+	font-family: 'Gentium Book Basic';
 	color: #fff;
 	color: rgba(0,0,0,0.5);
 }
@@ -839,31 +839,31 @@ input.cbp-mc-submit:hover {
 
 .post h2{
 	color: #ff5a71;
-	font-family: 'Ubuntu', cursive;
+  font-family: 'Ubuntu';
 	line-height: 1.8;
 }
 
 .post h3{
 	color: #ff5a71;
-	font-family: 'Ubuntu', cursive;
+	font-family: 'Ubuntu';
 	line-height: 1.8;
 }
 
 .post h4{
 	color: #ff5a71;
-	font-family: 'Ubuntu', cursive;
+	font-family: 'Ubuntu';
 	line-height: 1.8;
 }
 
 .post h5{
 	color: #ff5a71;
-	font-family: 'Ubuntu', cursive;
+	font-family: 'Ubuntu';
 	line-height: 1.8;
 }
 
 .post h6{
 	color: #ff5a71;
-	font-family: 'Ubuntu', cursive;
+	font-family: 'Ubuntu';
 	line-height: 1.8;
 }
 
