@@ -46,10 +46,20 @@ canonical: https://gompanghee.github.io
 
   .glitch {
     color: white;
-    font-size: 50em;
+    font-size: 10em;
     text-transform: upercase;
     position: relative;
     display: inline-block;
+  }
+
+  @media screen and (max-width: 1024px) {
+    .glitch {
+    color: white;
+    font-size: 1em;
+    text-transform: upercase;
+    position: relative;
+    display: inline-block;
+  }
   }
 
   .glitch::before,
