@@ -178,15 +178,21 @@
   100% { opacity: 1; }
 }
 </style>
-<link rel="stylesheet" href="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css" />
-<script src="http://code.jquery.com/jquery-2.1.3.js"></script>
-<script src="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.js"></script>
+
 <script>
   var log=Date.now();
 
-  $('document').on("scrollstart",() => {
+  window.addEventListener('scroll',() => {
       
-      if (window.scrollY<nav.offsetTop && Date.now()-log>nav.offsetTop-window.scrollY && Date.now()-log>100) {
+      if (window.scrollY<nav.offsetTop && Date.now()-log>nav.offsetTop-window.scrollY) {
+          log=Date.now();
+          nav.scrollIntoView({behavior: 'smooth'});
+      }
+  });
+
+  window.addEventListener('touchstart',() => {
+      
+      if (window.scrollY<nav.offsetTop && Date.now()-log>nav.offsetTop-window.scrollY) {
           log=Date.now();
           nav.scrollIntoView({behavior: 'smooth'});
       }
@@ -222,3 +228,12 @@
 
 
         
+<script>
+  fullpage.addEventListener('touchstart',() => {
+      
+      if (window.scrollY<nav.offsetTop && Date.now()-log>nav.offsetTop-window.scrollY) {
+          log=Date.now();
+          nav.scrollIntoView({behavior: 'smooth'});
+      }
+  });
+</script>
