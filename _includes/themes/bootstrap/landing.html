@@ -1,4 +1,17 @@
-<div id="fullpage">
+<style>
+  .parallax {
+  background-image: url('{{ BASE_PATH }}/assets/img/{% if page.img %}{{ page.img }}{% else %}generic.jpg{% endif %}');
+
+  height: 500px;
+
+  background-attachment: fixed;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+</style>
+
+<div id="parallax">
   <div class="section" id="section0">
     <div style="background-size: cover; background-image:url('{{ BASE_PATH }}/assets/img/{% if page.img %}{{ page.img }}{% else %}generic.jpg{% endif %}')" class="slide">       
         <div class="jumbotronic" style="text-align: center">
