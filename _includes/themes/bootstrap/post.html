@@ -327,6 +327,18 @@
 </div>
 
 {% include themes/bootstrap/nav-bar.html %}
+
+<div class="row">
+
+  <div class="col-sm-6">
+  {% unless page.categories == empty %}
+
+        <h4 class="lead">
+              {{page.categories | array_to_sentence_string}}
+        </p>
+  {% endunless %}
+  </div>
+</div>
 <br />
 <br />
 
@@ -342,17 +354,6 @@
           <br />
           {% include ads-block.html %}
           <br />
-          <div class="row">
-
-                <div class="col-sm-6">
-                {% unless page.categories == empty %}
-
-                      <h4 class="lead">
-                            {{page.categories | array_to_sentence_string}}
-                      </p>
-                {% endunless %}
-                </div>
-          </div>
 
           <div class="row">          
             <div class="col-sm-6"  style="text-align: center;">
@@ -388,7 +389,7 @@
               </div>
             </div>
           </div>
-          
+
           <hr>
           <div>
             <h2>Comments</h2>
