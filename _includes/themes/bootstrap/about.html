@@ -177,10 +177,6 @@
   50%  { opacity: .5; }
   100% { opacity: 1; }
 }
-
-.fp-tableCell{
-  display: table;
-}
 </style>
 
 <script>
@@ -196,8 +192,9 @@
 </script>
 
 <div id="fullpage" class="parallax" style="cursor:pointer;" onclick="nav.scrollIntoView({behavior: 'smooth'});">
+  <div class="section" id="section0">
     <div style="background-size: cover; background-image:url('{{ BASE_PATH }}/assets/img/{% if page.img %}{{ page.img }}{% else %}generic.jpg{% endif %}')" class="slide">       
-        <div class="jumbotronic" style="text-align: center; display: table-cell; vertical-align: middle;">
+        <div class="jumbotronic" style="text-align: center;">
           <h1 class="heavy">{{ page.title }}</h1>
           {% if page.tagline %} <h2 class="heavy">{{ page.tagline }}</h2>{% endif %}
           <div class="mouse_scroll">
@@ -213,10 +210,11 @@
         </div>
     </div>
   </div>
+ </div>
 </div>
 
 
-{% include themes/bootstrap/nav-bar.html %}  
+  {% include themes/bootstrap/nav-bar.html %}  
 
 
 <br />
