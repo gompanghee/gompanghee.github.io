@@ -182,21 +182,12 @@
 <script>
   var log=Date.now();
 
-  window.addEventListener('scroll',() => {
-      
-      if (window.scrollY<nav.offsetTop && window.scrollY>0 && Date.now()-log>nav.offsetTop-window.scrollY && Date.now()-log>100) {
+  setInterval(()=>{
+    if (window.scrollY<nav.offsetTop && window.scrollY>0 && Date.now()-log>nav.offsetTop-window.scrollY && Date.now()-log>100) {
           log=Date.now();
           nav.scrollIntoView({behavior: 'smooth'});
       }
-  });
-
-  window.addEventListener('touchmove',() => {
-      
-      if (window.scrollY<nav.offsetTop && window.scrollY>0 && Date.now()-log>nav.offsetTop-window.scrollY && Date.now()-log>100) {
-          log=Date.now();
-          nav.scrollIntoView({behavior: 'smooth'});
-      }
-  });
+  },100)
 </script>
 
 <div id="fullpage" class='parallax' style="cursor:pointer;" onclick="nav.scrollIntoView({behavior: 'smooth'});">
