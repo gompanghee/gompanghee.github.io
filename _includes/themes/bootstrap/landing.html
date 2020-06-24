@@ -184,7 +184,7 @@
 <script>
   var log=Date.now();
 
-  $(document).on("scrollstart",() => {
+  $('document').on("scrollstart",() => {
       
       if (window.scrollY<nav.offsetTop && Date.now()-log>nav.offsetTop-window.scrollY && Date.now()-log>100) {
           log=Date.now();
