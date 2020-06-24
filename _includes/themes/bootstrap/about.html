@@ -50,11 +50,26 @@
 
            {{ content }}     
 
-           <hr class="my-4">
+          <div class="row">
+
+                <div class="col-sm-8">
+                  <div class="jumbotron" style="background: white">
+                    <h1 class="display-3">Share It!</h1>
+                    <div class="text-center">{% include social-share.html %}</div>
+                    <hr class="my-4">
+                  </div>                   
+                
+                  
+
+                </div>
+
+          </div>
+          <hr>
           <div>
             <div class="jumbotron" style="background: white">
-              <h1 class="display-3">Comments</h1>
-              <p class="lead">Ask me someting about to know me more.</p>
+              <h1 class="display-3">Ask Me!</h1>
+              <p class="lead">Ask me someting about this theme or to know me more.</p>
+              <hr class="my-4">
             </div>
             {% include JB/comments %}
           </div>
