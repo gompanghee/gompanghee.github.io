@@ -1035,6 +1035,7 @@ pre code {
     min-height: 1px;
     padding-right: 15px;
     padding-left: 15px
+    
 }
 
 @media (min-width:576px) {
@@ -1684,7 +1685,8 @@ pre code {
         -webkit-flex: 0 0 100%;
         -ms-flex: 0 0 100%;
         flex: 0 0 100%;
-        max-width: 100%
+        max-width: 100%;
+        min-height: 1024px;
     }
     .pull-sm-0 {
         right: auto
