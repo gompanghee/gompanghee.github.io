@@ -428,7 +428,7 @@ a {
 
 a:focus,
 a:hover {
-    color: #ff5a71;
+    color: #5a9cff;
     text-decoration: underline
 }
 
@@ -4830,7 +4830,7 @@ tbody.collapse.show {
 .navbar-inverse .navbar-brand:hover,
 .navbar-inverse .navbar-toggler:focus,
 .navbar-inverse .navbar-toggler:hover {
-    color: #ff5a71;
+    color: #5a9cff;
     text-decoration: underline!important;
 
     
@@ -4858,7 +4858,7 @@ tbody.collapse.show {
 .navbar-inverse .navbar-nav .nav-link.active,
 .navbar-inverse .navbar-nav .nav-link.open,
 .navbar-inverse .navbar-nav .open>.nav-link {
-    color: #ff5a71
+    color: #5a9cff
 }
 
 .navbar-inverse .navbar-toggler {
