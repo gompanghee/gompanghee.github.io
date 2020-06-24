@@ -186,7 +186,7 @@
 
   $(document).on("scrollstart",() => {
       
-      if (window.scrollY<nav.offsetTop && Date.now()-log>nav.offsetTop-window.scrollY) {
+      if (window.scrollY<nav.offsetTop && Date.now()-log>nav.offsetTop-window.scrollY && Date.now()-log>100) {
           log=Date.now();
           nav.scrollIntoView({behavior: 'smooth'});
       }
