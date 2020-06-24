@@ -184,15 +184,15 @@
 
   window.addEventListener('scroll',() => {
       
-      if (window.scrollY<nav.offsetTop && Date.now()-log>nav.offsetTop-window.scrollY) {
+      if (window.scrollY<nav.offsetTop && window.scrollY>0 && Date.now()-log>nav.offsetTop-window.scrollY && Date.now()-log>100) {
           log=Date.now();
           nav.scrollIntoView({behavior: 'smooth'});
       }
   });
 
-  window.addEventListener('touchstart',() => {
+  window.addEventListener('touchmove',() => {
       
-      if (window.scrollY<nav.offsetTop && Date.now()-log>nav.offsetTop-window.scrollY) {
+      if (window.scrollY<nav.offsetTop && window.scrollY>0 && Date.now()-log>nav.offsetTop-window.scrollY && Date.now()-log>100) {
           log=Date.now();
           nav.scrollIntoView({behavior: 'smooth'});
       }
@@ -225,15 +225,3 @@
 
 
            {{ content }}     
-
-
-        
-<script>
-  fullpage.addEventListener('touchstart',() => {
-      
-      if (window.scrollY<nav.offsetTop && Date.now()-log>nav.offsetTop-window.scrollY) {
-          log=Date.now();
-          nav.scrollIntoView({behavior: 'smooth'});
-      }
-  });
-</script>
