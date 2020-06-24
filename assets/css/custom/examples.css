@@ -834,7 +834,10 @@ input.cbp-mc-submit:hover {
 
 .post h1{
 	color: #ff5a71;
-	line-height: 1.8;
+  line-height: 1.8;
+  font-family: 'ubuntu';
+  font-weight: 800;
+  font-size: 4em;
 }
 
 .post h2{
