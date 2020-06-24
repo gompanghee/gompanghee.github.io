@@ -192,7 +192,7 @@
   });
 </script>
 
-<div id="fullpage" class="parallax">
+<div id="fullpage" class="parallax" style="cursor:pointer;" onclick="nav.scrollIntoView({behavior: 'smooth'});">
   <div class="section parallax" id="section0">
     <div style="background-size: cover; background-image:url('{{ BASE_PATH }}/assets/img/{% if page.img %}{{ page.img }}{% else %}generic.jpg{% endif %}')" class="slide parallax">       
         <div class="jumbotronic parallax" style="text-align: center">
