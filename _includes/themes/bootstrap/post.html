@@ -197,14 +197,14 @@
   border:2px solid #34495e;
   float:left;
   text-align:center;
-  cursor:pointer;
+  cursor:default;
   position:relative;
   box-sizing:border-box;
   overflow:hidden;
   margin:0 0 40px 0;
 }
 
-.no-button a{
+.no-button span{
   font-family:'Ubuntu';
   font-size:16px;
   color:#34495e;
@@ -382,7 +382,7 @@
                       <div class="no-eff"></div>
                       No more old posts<span data-letters="&larr; No more old posts"></span><span data-letters="&larr; No more old posts"></span></a>
                     </div>
-                     {% endif %}
+                    {% endif %}
                    </div>
                       
               </div>
@@ -399,7 +399,7 @@
                             {% else %}
                             <div class="no-button">
                               <div class="no-eff"></div>
-                              No more old posts<span data-letters="&larr; No more old posts"></span><span data-letters="&larr; No more old posts"></span></a>
+                              <span>No more old posts</span><span data-letters="&larr; No more old posts"></span><span data-letters="&larr; No more old posts"></span>
                             </div>
                             {% endif %}
                           </div>
