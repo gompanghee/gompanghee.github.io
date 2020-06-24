@@ -328,29 +328,32 @@
 
 {% include themes/bootstrap/nav-bar.html %}
 
+<br />
+<br />
+
     <div class="container">
+      <div class="row post">
+
+        <div class="col-sm-6">
+        {% unless page.categories == empty %}
+      
+              <h4 class="lead">
+                    {{page.categories | array_to_sentence_string}} :
+              </p>
+        {% endunless %}
+        </div>
+      </div>
+
+      <div class="post">
+        <h1>{{ page.title }}</h1>
+      </div>
+
+      <div class="row">
 
         <div class="col-sm-12 post">
 
           {% include ads-block.html %}
           <br />
-          <div class="row post">
-
-            <div class="col-sm-6">
-            {% unless page.categories == empty %}
-          
-                  <h4 class="lead">
-                        {{page.categories | array_to_sentence_string}} :
-                  </p>
-            {% endunless %}
-            </div>
-          </div>
-    
-          <div class="post">
-            <h1>{{ page.title }}</h1>
-          </div>
-    
-          <div class="row">
            {{ content }}
           <br />
           {% include ads-block.html %}
