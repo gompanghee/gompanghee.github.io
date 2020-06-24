@@ -177,6 +177,119 @@
   50%  { opacity: .5; }
   100% { opacity: 1; }
 }
+
+.button-1{
+  width:140px;
+  height:50px;
+  border:2px solid #34495e;
+  float:left;
+  text-align:center;
+  cursor:pointer;
+  position:relative;
+  box-sizing:border-box;
+  overflow:hidden;
+  margin:0 0 40px 0;
+}
+
+.no-button{
+  width:140px;
+  height:50px;
+  border:2px solid #34495e;
+  float:left;
+  text-align:center;
+  cursor:pointer;
+  position:relative;
+  box-sizing:border-box;
+  overflow:hidden;
+  margin:0 0 40px 0;
+}
+
+.no-button a{
+  font-family:'Ubuntu';
+  font-size:16px;
+  color:#34495e;
+  text-decoration:none;
+  line-height:50px;
+  transition:all .5s ease;
+  z-index:2;
+  position:relative;
+}
+
+.no-eff{
+  width:140px;
+  height:50px;
+  top:-2px;
+  right:-140px;
+  background:#34495e;
+  position:absolute;
+  transition:all .5s ease;
+  z-index:1;
+}
+
+.button-1 a{
+  font-family:'Ubuntu';
+  font-size:16px;
+  color:#34495e;
+  text-decoration:none;
+  line-height:50px;
+  transition:all .5s ease;
+  z-index:2;
+  position:relative;
+}
+.eff-1{
+  width:140px;
+  height:50px;
+  top:-2px;
+  right:-140px;
+  background:#34495e;
+  position:absolute;
+  transition:all .5s ease;
+  z-index:1;
+}
+.button-1:hover .eff-1{
+  right:0;
+}
+.button-1:hover a{
+  color:#fff;
+}
+
+.button-4{
+  width:140px;
+  height:50px;
+  border:2px solid #34495e;
+  float:left;
+  text-align:center;
+  cursor:pointer;
+  position:relative;
+  box-sizing:border-box;
+  overflow:hidden;
+  margin:0 0 40px 50px;
+}
+.button-4 a{
+  font-family:'Ubuntu';
+  font-size:16px;
+  color:#34495e;
+  text-decoration:none;
+  line-height:50px;
+  transition:all .5s ease;
+  z-index:2;
+  position:relative;
+}
+.eff-4{
+  width:140px;
+  height:50px;
+  left:-140px;
+  background:#34495e;
+  position:absolute;
+  transition:all .5s ease;
+  z-index:1;
+}
+.button-4:hover .eff-4{
+  left:0;
+}
+.button-4:hover a{
+  color:#fff;
+}
 </style>
 
 <script>
@@ -259,9 +372,16 @@
                 <h2>Previous post</h2>
                   <div>
                     {% if page.previous %}
-                    <h3><a class="" href="{{ BASE_PATH }}{{ page.previous.url }}" title="{{ page.previous.title }}">&larr; {{ page.previous.title }}<span data-letters="&larr; {{ page.previous.title }}"></span><span data-letters="&larr; {{ page.previous.title }}"></span></a></h3>
+                    <div class="button-1">
+                      <div class="eff-1"></div>
+                      <a href="{{ BASE_PATH }}{{ page.previous.url }}" title="{{ page.previous.title }}">&larr; {{ page.previous.title }}<span data-letters="&larr; {{ page.previous.title }}"></span><span data-letters="&larr; {{ page.previous.title }}"></span></a>
+                    </div>
+                    
                     {% else %}
-                    <h3><a class="disabled" href="#" title="No more old posts">&larr; No more old posts<span data-letters="&larr; No more old posts"></span><span data-letters="&larr; No more old posts"></span></a></h3>
+                    <div class="no-button">
+                      <div class="no-eff"></div>
+                      No more old posts<span data-letters="&larr; No more old posts"></span><span data-letters="&larr; No more old posts"></span></a>
+                    </div>
                      {% endif %}
                    </div>
                       
@@ -272,16 +392,26 @@
                       <h2>Next Post</h2>
                           <div>
                             {% if page.next %}
-                              <h3><a style="margin: 0 auto;" class="" href="{{ BASE_PATH }}{{ page.next.url }}" title="{{ page.next.title }}">{{ page.next.title }} &rarr;<span data-letters="{{ page.next.title }} &rarr;"></span><span data-letters="{{ page.next.title }} &rarr;"></span></a></h3>
+                            <div class="button-4">
+                              <div class="eff-4"></div>
+                              <a href="{{ BASE_PATH }}{{ page.next.url }}" title="{{ page.next.title }}">{{ page.next.title }} &rarr;<span data-letters="{{ page.next.title }} &rarr;"></span><span data-letters="{{ page.next.title }} &rarr;"></span></a>
+                            </div>
                             {% else %}
-                              <h3><a style="margin: 0 auto;" class="disabled" href="#" title="No more new posts">No more new posts &rarr;<span data-letters="&larr; No more new posts"></span><span data-letters="&larr; No more new posts"></span></a></h3>
+                            <div class="no-button">
+                              <div class="no-eff"></div>
+                              No more old posts<span data-letters="&larr; No more old posts"></span><span data-letters="&larr; No more old posts"></span></a>
+                            </div>
                             {% endif %}
                           </div>
               </div>
             </div>
 
     </div>
-
+    
+    <div class="button-4">
+      <div class="eff-4"></div>
+      <a href="#"> Touch me </a>
+    </div>
 <script>
   window.onload=setTimeout(()=>{nav.scrollIntoView({behavior: 'smooth'});},3500)
 </script>
