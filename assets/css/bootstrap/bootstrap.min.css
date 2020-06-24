@@ -4846,7 +4846,7 @@ tbody.collapse.show {
 
 .navbar-inverse .navbar-nav .nav-link:focus,
 .navbar-inverse .navbar-nav .nav-link:hover {
-    color: rgba(255, 90, 113, .90);
+    color: #5a9cffe6;
     text-decoration: underline!important;
 }
 
