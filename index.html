@@ -319,13 +319,56 @@ canonical: https://gompanghee.github.io
 
   #socialMenu{
     top: 10px;
-      right: 10px;
+      left: 10px;
     bottom: unset;
-      left: unset;
+      right: unset;
   }
+
+  .icon {
+    position: fixed;
+    top: 50px;
+    right: 0px;
+    transform: translate(-50%,-50%);
+    width: 80px;
+    height: 60px;
+    cursor: pointer;
+}
+
+.arrow {
+  position: absolute;
+  top: 25px;
+  width: 90%;
+  height: 10px;
+  background-color: #fff;
+  box-shadow: 0 3px 5px rgba(0, 0, 0, .2);
+  animation: arrow 700ms linear infinite;
+}
+
+.arrow::after, .arrow::before {
+  content: '';
+  position: absolute;
+  width: 60%;
+  height: 10px;
+  right: -8px;
+  background-color: #fff;
+}
+
+.arrow::after {
+  top: -12px;
+  transform: rotate(45deg);
+}
+
+.arrow::before {
+  top: 12px;
+  box-shadow: 0 3px 5px rgba(0, 0, 0, .2);
+  transform: rotate(-45deg);
+}
 </style>
 
 <div class="glitch-wrapper" style="cursor: pointer;" onclick="window.location.href='https://gompanghee.github.io/landing'">
+  <div class="icon">
+    <div class="arrow"></div>
+  </div>
   <h1 class="glitch" data-text="Gompanghee" style="font-family: 'Ubuntu', sans-serif;">
     Gompanghee
   </h1>
