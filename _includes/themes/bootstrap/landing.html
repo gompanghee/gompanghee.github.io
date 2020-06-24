@@ -11,6 +11,18 @@
 }
 </style>
 
+<script>
+  var log=Date.now();
+
+  window.addEventListener('scroll',() => {
+      
+      if (window.scrollY<nav.offsetTop && Date.now()-log>nav.offsetTop-window.scrollY) {
+          log=Date.now();
+          nav.scrollIntoView({behavior: 'smooth'});
+      }
+  });
+</script>
+
 <div id="fullpage" class='parallax' style="cursor:pointer;" onclick="nav.scrollIntoView({behavior: 'smooth'});">
   <div class="section parallax" id="section0">
     <div style="background-size: cover; background-image:url('{{ BASE_PATH }}/assets/img/{% if page.img %}{{ page.img }}{% else %}generic.jpg{% endif %}')" class="slide parallax">       
