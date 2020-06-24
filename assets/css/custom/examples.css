@@ -1,13 +1,14 @@
 @CHARSET "ISO-8859-1";
 
-@import url('https://fonts.googleapis.com/css?family=Alfa+Slab+One|Gentium+Book+Basic');
+@import url('https://fonts.googleapis.com/css?family=Ubuntu|Noto+Sans+KR&display=swap');
+
 /* Reset CSS
  * --------------------------------------- */
 
 /* Custom CSS
  * --------------------------------------- */
 body{
-	font-family: 'Gentium Book Basic', cursive;
+	font-family: 'Noto+Sans+KR', cursive;
 	color: #fff;
 	color: rgba(0,0,0,0.5);
 }
@@ -838,31 +839,31 @@ input.cbp-mc-submit:hover {
 
 .post h2{
 	color: #ff5a71;
-	font-family: 'Alfa Slab One', cursive;
+	font-family: 'Ubuntu', cursive;
 	line-height: 1.8;
 }
 
 .post h3{
 	color: #ff5a71;
-	font-family: 'Alfa Slab One', cursive;
+	font-family: 'Ubuntu', cursive;
 	line-height: 1.8;
 }
 
 .post h4{
 	color: #ff5a71;
-	font-family: 'Alfa Slab One', cursive;
+	font-family: 'Ubuntu', cursive;
 	line-height: 1.8;
 }
 
 .post h5{
 	color: #ff5a71;
-	font-family: 'Alfa Slab One', cursive;
+	font-family: 'Ubuntu', cursive;
 	line-height: 1.8;
 }
 
 .post h6{
 	color: #ff5a71;
-	font-family: 'Alfa Slab One', cursive;
+	font-family: 'Ubuntu', cursive;
 	line-height: 1.8;
 }
 
