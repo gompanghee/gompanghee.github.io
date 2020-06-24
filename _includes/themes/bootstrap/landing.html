@@ -192,20 +192,20 @@
 </script>
 
 <div id="fullpage" class='parallax' style="cursor:pointer;" onclick="nav.scrollIntoView({behavior: 'smooth'});">
-  <div class="section parallax" id="section0">
-    <div style="background-size: cover; background-image:url('{{ BASE_PATH }}/assets/img/{% if page.img %}{{ page.img }}{% else %}generic.jpg{% endif %}')" class="slide parallax">       
-        <div class="jumbotronic parallax" style="text-align: center">
+  <div class="section" id="section0">
+    <div style="background-size: cover; background-image:url('{{ BASE_PATH }}/assets/img/{% if page.img %}{{ page.img }}{% else %}generic.jpg{% endif %}')" class="slide">       
+        <div class="jumbotronic" style="text-align: center">
           <h1 class="heavy">{{ page.title }}</h1>
           {% if page.tagline %} <h2 class="heavy">{{ page.tagline }}</h2>{% endif %}
-        </div>
-        <div class="mouse_scroll">
-          <div class="mouse">
-            <div class="wheel"></div>
-          </div>
-          <div>
-            <span class="m_scroll_arrows unu"></span>
-            <span class="m_scroll_arrows doi"></span>
-            <span class="m_scroll_arrows trei"></span>
+          <div class="mouse_scroll">
+            <div class="mouse">
+              <div class="wheel"></div>
+            </div>
+            <div>
+              <span class="m_scroll_arrows unu"></span>
+              <span class="m_scroll_arrows doi"></span>
+              <span class="m_scroll_arrows trei"></span>
+            </div>
           </div>
         </div>
     </div>
