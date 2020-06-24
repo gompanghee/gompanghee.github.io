@@ -348,47 +348,47 @@
                 {% unless page.categories == empty %}
 
                       <h4 class="lead">
-                            Categories | {{page.categories | array_to_sentence_string}}
+                            {{page.categories | array_to_sentence_string}}
                       </p>
                 {% endunless %}
                 </div>
-
-                <div class="row">          
-                  <div class="col-sm-6"  style="text-align: center;">
-                    <div>
-                      {% if page.previous %}
-                      <div class="button-1">
-                        <div class="eff-1"></div>
-                        <a href="{{ BASE_PATH }}{{ page.previous.url }}" title="{{ page.previous.title }}">&larr; {{ page.previous.title }}<span data-letters="&larr; {{ page.previous.title }}"></span><span data-letters="&larr; {{ page.previous.title }}"></span></a>
-                      </div>
-                      
-                      {% else %}
-                      <div class="no-button">
-                        <div class="no-eff"></div>
-                        No more old posts<span data-letters="&larr; No more old posts"></span><span data-letters="&larr; No more old posts"></span></a>
-                      </div>
-                      {% endif %}
-                      </div>
-                  </div>
-                  
-                  <div class="col-sm-6"  style="text-align: center;">
-                    <div>
-                      {% if page.next %}
-                      <div class="button-4">
-                        <div class="eff-4"></div>
-                        <a href="{{ BASE_PATH }}{{ page.next.url }}" title="{{ page.next.title }}">{{ page.next.title }} &rarr;<span data-letters="{{ page.next.title }} &rarr;"></span><span data-letters="{{ page.next.title }} &rarr;"></span></a>
-                      </div>
-                      {% else %}
-                      <div class="no-button">
-                        <div class="no-eff"></div>
-                        <span>No more old posts</span><span data-letters="&larr; No more old posts"></span><span data-letters="&larr; No more old posts"></span>
-                      </div>
-                      {% endif %}
-                    </div>
-                  </div>
-                </div>
-
           </div>
+
+          <div class="row">          
+            <div class="col-sm-6"  style="text-align: center;">
+              <div>
+                {% if page.previous %}
+                <div class="button-1">
+                  <div class="eff-1"></div>
+                  <a href="{{ BASE_PATH }}{{ page.previous.url }}" title="{{ page.previous.title }}">&larr; {{ page.previous.title }}<span data-letters="&larr; {{ page.previous.title }}"></span><span data-letters="&larr; {{ page.previous.title }}"></span></a>
+                </div>
+                
+                {% else %}
+                <div class="no-button">
+                  <div class="no-eff"></div>
+                  No more old posts<span data-letters="&larr; No more old posts"></span><span data-letters="&larr; No more old posts"></span></a>
+                </div>
+                {% endif %}
+                </div>
+            </div>
+            
+            <div class="col-sm-6"  style="text-align: center;">
+              <div>
+                {% if page.next %}
+                <div class="button-4">
+                  <div class="eff-4"></div>
+                  <a href="{{ BASE_PATH }}{{ page.next.url }}" title="{{ page.next.title }}">{{ page.next.title }} &rarr;<span data-letters="{{ page.next.title }} &rarr;"></span><span data-letters="{{ page.next.title }} &rarr;"></span></a>
+                </div>
+                {% else %}
+                <div class="no-button">
+                  <div class="no-eff"></div>
+                  <span>No more old posts</span><span data-letters="&larr; No more old posts"></span><span data-letters="&larr; No more old posts"></span>
+                </div>
+                {% endif %}
+              </div>
+            </div>
+          </div>
+          
           <hr>
           <div>
             <h2>Comments</h2>
