@@ -190,23 +190,7 @@
       }
   });
 
-  window.addEventListener('touchmove',() => {
-      
-      if (window.scrollY<nav.offsetTop && Date.now()-log>nav.offsetTop-window.scrollY) {
-          log=Date.now();
-          nav.scrollIntoView({behavior: 'smooth'});
-      }
-  });
-
-  window.addEventListener('scrollstart',() => {
-      
-      if (window.scrollY<nav.offsetTop && Date.now()-log>nav.offsetTop-window.scrollY) {
-          log=Date.now();
-          nav.scrollIntoView({behavior: 'smooth'});
-      }
-  });
-
-  window.addEventListener('scrollstop',() => {
+  window.addEventListener('touchstart',() => {
       
       if (window.scrollY<nav.offsetTop && Date.now()-log>nav.offsetTop-window.scrollY) {
           log=Date.now();
