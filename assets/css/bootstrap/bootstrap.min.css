@@ -9878,3 +9878,7 @@ a.text-gray-dark:hover {
     left: -1000000px !important;
     top: -1000000px !important; 
 }
+
+.indent {
+    padding : 4rem 2rem;
+}
