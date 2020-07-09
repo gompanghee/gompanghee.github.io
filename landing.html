@@ -18,13 +18,31 @@ img : landing.jpg
     z-index: 100;
   }
 
-  .image_btn:hover.matL{
-    transform: matrix3d(1, 0, 0, 0.0001, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1);
+  @media (min-width: 768px){
+    .image_btn:hover.matL{
+      transform: matrix3d(1, 0, 0, 0.0001, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1);
+    }
   }
 
-  .image_btn:hover.matR{
-    transform: matrix3d(1, 0, 0, -0.0001, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1);
+  @media (min-width: 768px){
+    .image_btn:hover.matR{
+      transform: matrix3d(1, 0, 0, -0.0001, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1);
+    }
   }
+
+  @media (max-width: 767px){
+    .image_btn:hover.matL{
+      transform: matrix3d(1, 0, 0, 0, 0, 1, 0, 0.0001, 0, 0, 1, 0, 0, 0, 0, 1);
+    }
+  }
+
+  @media (max-width: 767px){
+    .image_btn:hover.matR{
+      transform: matrix3d(1, 0, 0, 0, 0, 1, 0, -0.0001, 0, 0, 1, 0, 0, 0, 0, 1);
+    }
+  }
+
+  
     
 </style>
 
