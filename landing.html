@@ -8,6 +8,18 @@ img : landing.jpg
 ---
 <!--{% include JB/setup %}-->
 
+<style>
+  .image_btn{
+    z-index: 0;
+    transition: transfrom 0.5s ease;
+  }
+
+  .image_btn:hover{
+    z-index: 100;
+    transform: scale(1.2);
+  }
+</style>
+
 <!-- Stack the columns on mobile by making one full-width and the other half-width -->
 <div class="container-fluid nopadding">
   <div class="post">
@@ -15,115 +27,18 @@ img : landing.jpg
     <!-- Fist image block -->
     <div class="nopadding row vertical-align">
 
-      <div class="nopadding col-md-6">
-        <img src="https://unsplash.it/700/700/?image=1004" class="img-fluid">
-      </div>
+      <div class="col-md-6 text-center" style="height:100%; cursor: pointer; background-image: url(https://gompanghee.github.io/assets/img/about.jpg);" onclick="window.location.href='https://gompanghee.github.io/about';">
+        
+        <h2 style="color: #FFFFFF; text-shadow: #292929A0 0px 0px 5px;">About</h2>
 
-      <div class="col-md-6 text-center">
+    </div>
+
+      <div class="col-md-6 text-center" style="height:100%; cursor: pointer; background-image: url(https://gompanghee.github.io/assets/img/archive.jpg);" onclick="window.location.href='https://gompanghee.github.io/archive';">
         
-          <h2>With the product you'll became more beautifull</h2>
-          <p>This is the truth you will be <b>more beautiful</b> and attractive in order to be always perfect in every moment of your life.</p>
-        
+          <h2 style="color: #FFFFFF; text-shadow: #292929A0 0px 0px 5px;">Archive</h2>
 
       </div>
     </div>
-
-    <!-- Second image block -->
-    <div class="nopadding row vertical-align">
-
-      <div class="nopadding col-md-6 text-center">
-
-        <h2>You will demonstrate your authority</h2>
-        <p>And to <b>show other people what you are worth</b>, taking advantage of all its benefits.</p>
-
-      </div>
-
-      <div class="nopadding col-md-6">
-        <img src="https://unsplash.it/700/700/?image=825" class="img-fluid">
-      </div>
-    </div>
-
-    <!-- Third image block -->
-    <div class="nopadding row  vertical-align">
-
-      <div class="nopadding col-md-6">
-        <img src="https://unsplash.it/700/700/?image=967" class="img-fluid">
-      </div>
-
-      <div class="col-md-6 text-center">
-        
-         
-          <h2>Finally, you can improve your lifestyle thanks to the product</h2>
-          <p>That's right, you can not help it and <b>your life will be full again</b> and fun as long ago when you were a successful person.</p>          
-         
-         
-        </div>
-     </div>
-
-     <!-- Jumbiotron parallax-->
-    <div class="jumbotron jumbotron-fluid" style="margin-bottom: 0px;   background: url('https://unsplash.it/2200/?image=120') no-repeat center center fixed; 
-  -webkit-background-size: cover;
-  -moz-background-size: cover;
-  -o-background-size: cover;
-  background-size: cover;">
-      <div class="jumbotron jumbotron-fluid" style="background-color: transparent;">
-        <div class="container">
-          <h1 class="display-3 heavy"><strong>Make the point of situation</strong></h1>
-          <p class="lead heavy" style="color: white"><b>Make the point of situation for persuade your customer to buy your great product.</b></p>
-        </div>
-      </div>
-    </div>     
-    
-
-    <!-- Four column List -->
-    <div class="nopadding row vertical-align">
-      <div class="nopadding col-6 col-sm-3">
-        <img src="https://unsplash.it/400/400/?image=996" class="img-fluid">
-      </div>
-      <div class="nopadding col-6 col-sm-3 text-center">Since using the product they are much prettier and friends make me the note.</div>
-
-      <!-- Add the extra clearfix for only the required viewport -->
-      <div class="clearfix hidden-sm-up"></div>
-
-      <div class="nopadding col-6 col-sm-3">
-        <img src="https://unsplash.it/400/400/?image=433" class="img-fluid">
-      </div>
-      <div class="nopadding col-6 col-sm-3 text-center">I finally found my authority! Thanks product!</div>
-    </div>        
-
-    <!-- Four column List inverse -->
-    <div class="nopadding row vertical-align">
-      <div class="nopadding col-6 col-sm-3 text-center">        
-        From when I use it I can go for a walk without being ashamed of myself.
-      </div>
-      <div class="nopadding col-6 col-sm-3">
-        <img src="https://unsplash.it/400/400?image=64" class="img-fluid">
-      </div>
-
-      <!-- Add the extra clearfix for only the required viewport -->
-      <div class="clearfix hidden-sm-up"></div>
-
-      <div class="nopadding col-6 col-sm-3 text-center">
-        Now I can finally take in hand my life and make it a successful life!
-      </div>
-      <div class="nopadding col-6 col-sm-3">
-        <img src="https://unsplash.it/400/400/?image=91" class="img-fluid">
-      </div>
-    </div> 
-
-    <div class="jumbotron jumbotron-fluid">
-      <div class="container">
-        <h1 class="display-3"><strong>Now buy our amazing product!</strong></h1>
-        <p class="lead"><b>Buying the product be able to express the best of yourself and your feelings.</b></p>
-        <hr class="my-4">
-        <p>Remember to subscribe to the list to receive all the tips to make the most out of the product!</p>
-        <p class="lead">
-          <a class="btn btn-primary btn-lg" href="#" role="button">Buy now!</a>
-        </p>
-      </div>  
-    </div>           
-
-
   </div>  
 </div>
 
