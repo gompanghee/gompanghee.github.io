@@ -16,8 +16,16 @@ img : landing.jpg
 
   .image_btn:hover{
     z-index: 100;
-    transform: scaleX(1.2);
   }
+
+  .image_btn:hover .matL{
+    transform: matrix3d(1, 0, 0, 0.0001, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1);
+  }
+
+  .image_btn:hover .matR{
+    transform: matrix3d(1, 0, 0, -0.0001, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1);
+  }
+    
 </style>
 
 <!-- Stack the columns on mobile by making one full-width and the other half-width -->
@@ -27,11 +35,11 @@ img : landing.jpg
     <!-- Fist image block -->
     <div class="nopadding row vertical-align">
 
-      <div class="col-md-6 text-center image_btn" style="height:100%; cursor: pointer; background-image: url(https://gompanghee.github.io/assets/img/about.jpg); background-size: cover;" onclick="window.location.href='https://gompanghee.github.io/about';">
+      <div class="col-md-6 text-center image_btn matL" style="height:100%; cursor: pointer; background-image: url(https://gompanghee.github.io/assets/img/about.jpg); background-size: cover;" onclick="window.location.href='https://gompanghee.github.io/about';">
         <h2 style="color: #FFFFFF; text-shadow: #292929A0 0px 0px 5px;">About</h2>
       </div>
 
-      <div class="col-md-6 text-center image_btn" style="height:100%; cursor: pointer; background-image: url(https://gompanghee.github.io/assets/img/archive.jpg); background-size: cover;" onclick="window.location.href='https://gompanghee.github.io/archive';">
+      <div class="col-md-6 text-center image_btn matR" style="height:100%; cursor: pointer; background-image: url(https://gompanghee.github.io/assets/img/archive.jpg); background-size: cover;" onclick="window.location.href='https://gompanghee.github.io/archive';">
         <h2 style="color: #FFFFFF; text-shadow: #292929A0 0px 0px 5px;">Archive</h2>
       </div>
     </div>
