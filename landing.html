@@ -45,7 +45,7 @@ img : landing.jpg
       var obj_list=document.getElementsByClassName("image_btn");
     
       for(i=0; i<obj_list.length; i++)
-        obj_list.style.height=h+"px";
+        obj_list[i].style.height=h+"px";
 
       setTimeout(()=>{nav.scrollIntoView({behavior: 'smooth'});},1500)
   };
@@ -56,6 +56,6 @@ img : landing.jpg
       var obj_list=document.getElementsByClassName("image_btn");
     
       for(i=0; i<obj_list.length; i++)
-        obj_list.style.height=h+"px";
+        obj_list[i].style.height=h+"px";
     };
 </script>
