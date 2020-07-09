@@ -21,17 +21,17 @@ img : landing.jpg
 </style>
 
 <!-- Stack the columns on mobile by making one full-width and the other half-width -->
-<div class="container-fluid nopadding fullpage-wrapper">
+<div class="container-fluid nopadding">
   <div class="post">
 
     <!-- Fist image block -->
     <div class="nopadding row vertical-align">
 
-      <div id="section0" class="section col-md-6 text-center image_btn" style="height:100%; cursor: pointer; background-image: url(https://gompanghee.github.io/assets/img/about.jpg); background-size: cover;" onclick="window.location.href='https://gompanghee.github.io/about';">
+      <div class="col-md-6 text-center image_btn" style="height:100%; cursor: pointer; background-image: url(https://gompanghee.github.io/assets/img/about.jpg); background-size: cover;" onclick="window.location.href='https://gompanghee.github.io/about';">
         <h2 style="color: #FFFFFF; text-shadow: #292929A0 0px 0px 5px;">About</h2>
       </div>
 
-      <div id="section0" class="section col-md-6 text-center image_btn" style="height:100%; cursor: pointer; background-image: url(https://gompanghee.github.io/assets/img/archive.jpg); background-size: cover;" onclick="window.location.href='https://gompanghee.github.io/archive';">
+      <div class="col-md-6 text-center image_btn" style="height:100%; cursor: pointer; background-image: url(https://gompanghee.github.io/assets/img/archive.jpg); background-size: cover;" onclick="window.location.href='https://gompanghee.github.io/archive';">
         <h2 style="color: #FFFFFF; text-shadow: #292929A0 0px 0px 5px;">Archive</h2>
       </div>
     </div>
@@ -40,4 +40,12 @@ img : landing.jpg
 
 <script>
   window.onload=setTimeout(()=>{nav.scrollIntoView({behavior: 'smooth'});},1500)
+  window.onresize=(data)=>{
+      var h=data.target.innerHeight; 
+      
+      obj_list=document.getElementsByClassName("image_btn");
+    
+      for(i=0; i<obj_list.length; i++)
+        obj_list.style.height=h+"px";
+    }
 </script>
