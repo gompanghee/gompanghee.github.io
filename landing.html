@@ -49,10 +49,16 @@ img : landing.jpg
 <script>
   window.onresize=(data)=>{
       var h=data.target.innerHeight; 
-      
+      var w=data.target.innerWidth; 
+
       var obj_list=document.getElementsByClassName("image_btn");
-    
-      for(i=0; i<obj_list.length; i++)
-        obj_list[i].style.height=h+"px";
+
+      if(w>=576){
+        for(i=0; i<obj_list.length; i++)
+          obj_list[i].style.height=h+"px";
+      }else{
+        for(i=0; i<obj_list.length; i++)
+          obj_list[i].style.height=(h/2)+"px";
+      }
     };
 </script>
