@@ -42,18 +42,18 @@ img : landing.jpg
   window.onload=()=>{
       var h=data.target.innerHeight; 
       
-      obj_list=document.getElementsByClassName("image_btn");
+      var obj_list=document.getElementsByClassName("image_btn");
     
       for(i=0; i<obj_list.length; i++)
         obj_list.style.height=h+"px";
-        
+
       setTimeout(()=>{nav.scrollIntoView({behavior: 'smooth'});},1500)
   };
 
   window.onresize=(data)=>{
       var h=data.target.innerHeight; 
       
-      obj_list=document.getElementsByClassName("image_btn");
+      var obj_list=document.getElementsByClassName("image_btn");
     
       for(i=0; i<obj_list.length; i++)
         obj_list.style.height=h+"px";
