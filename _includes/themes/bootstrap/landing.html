@@ -218,5 +218,14 @@
            {{ content }}     
 
 <script>
-  window.onload=setTimeout(()=>{nav.scrollIntoView({behavior: 'smooth'});},1500)
+  window.onload=()=>{
+      var h=data.target.innerHeight; 
+      
+      var obj_list=document.getElementsByClassName("image_btn");
+    
+      for(i=0; i<obj_list.length; i++)
+        obj_list[i].style.height=h+"px";
+
+      setTimeout(()=>{nav.scrollIntoView({behavior: 'smooth'});},1500)
+  };
 </script>
