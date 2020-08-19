@@ -1,5 +1,6 @@
 ---
 layout: post
+title: SSD(Single Shot Multi-box Detector)
 categories : [ Research ]
 tags : [jekyll, code]
 tagline: "SSD(Single Shot Multi-box Detector)"
