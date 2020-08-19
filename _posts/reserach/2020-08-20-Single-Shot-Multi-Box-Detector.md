@@ -29,11 +29,11 @@ bgcolor: 292929
 
 그러므로 목적에 따라 키워드를 구분해 사용하는 것이 좋습니다.
 
-> 1. 하나의 이미지 전체가 어떤 사물을 표현하는 것인지 분류하는 'Classification'
->
-> 2. 하나의 이미지에 어떤 사물들이 표현되어 있는지 식별하는 'Recognition'
->
-> 3. 하나의 이미지에 사물들이 어떤 형태를 가지고 있는지 분리하는 'Segmentation'
+1. 하나의 이미지 전체가 어떤 사물을 표현하는 것인지 분류하는 'Classification'
+
+2. 하나의 이미지에 어떤 사물들이 표현되어 있는지 식별하는 'Recognition'
+
+3. 하나의 이미지에 사물들이 어떤 형태를 가지고 있는지 분리하는 'Segmentation'
 
 이 중 'Classification'과 'Recognition'을 묶어 'Detection'이라는 키워드를 사용할 수 있습니다.
 
