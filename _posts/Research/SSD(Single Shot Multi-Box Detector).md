@@ -1,6 +1,6 @@
 ---
 layout: post
-categories : Research
+categories : [ Research ]
 tagline: "SSD(Single Shot Multi-box Detector)"
 author : Gompanghee
 keywords: SSD, Single shot Multi-box Detector, Object Detection, Object Recognition
