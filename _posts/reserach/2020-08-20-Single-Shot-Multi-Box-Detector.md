@@ -23,7 +23,7 @@ bgcolor: 292929
 
 
 
-# 서론 : 사물 인식(Object Detection)
+## 서론 : 사물 인식(Object Detection)
 
 사물 인식은 크게 세가지 방식으로 나눌 수 있습니다.
 
