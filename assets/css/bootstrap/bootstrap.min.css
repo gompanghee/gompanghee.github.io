@@ -9882,3 +9882,13 @@ a.text-gray-dark:hover {
 .indent {
     padding : 4rem 2rem;
 }
+
+.post blockquote p {
+    border-left: solid #5a9cff 5px;
+    padding-left: 1em;
+    margin-left: 1em;
+    padding-top: 1em;
+    padding-bottom: 1em;
+    margin-bottom: 1.5em;
+    background-color: #5a9cff14;
+}

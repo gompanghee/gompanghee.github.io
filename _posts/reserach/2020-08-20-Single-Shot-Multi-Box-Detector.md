@@ -3,7 +3,7 @@ layout: post
 title: SSD(Single Shot Multi-box Detector)
 categories : [ Research ]
 tags : [jekyll, code]
-tagline: "SSD(Single Shot Multi-box Detector)"
+tagline: "for object recognition"
 author : Gompanghee
 keywords: SSD, Single shot Multi-box Detector, Object Detection, Object Recognition
 bgcolor: 292929
