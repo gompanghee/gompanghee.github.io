@@ -835,36 +835,42 @@ input.cbp-mc-submit:hover {
 .post h1{
 	color: #5a9cff;
   line-height: 1.8;
+  margin-top: 2em;
   font-family: 'ubuntu';
   font-weight: 800;
 }
 
 .post h2{
-	color: #5a9cff;
+  color: #5a9cff;
+  margin-top: 2em;
   font-family: 'Ubuntu';
 	line-height: 1.8;
 }
 
 .post h3{
-	color: #5a9cff;
+  color: #5a9cff;
+  margin-top: 2em;
 	font-family: 'Ubuntu';
 	line-height: 1.8;
 }
 
 .post h4{
-	color: #5a9cff;
+  color: #5a9cff;
+  margin-top: 2em;
 	font-family: 'Ubuntu';
 	line-height: 1.8;
 }
 
 .post h5{
-	color: #5a9cff;
+  color: #5a9cff;
+  margin-top: 2em;
 	font-family: 'Ubuntu';
 	line-height: 1.8;
 }
 
 .post h6{
-	color: #5a9cff;
+  color: #5a9cff;
+  margin-top: 2em;
 	font-family: 'Ubuntu';
 	line-height: 1.8;
 }
