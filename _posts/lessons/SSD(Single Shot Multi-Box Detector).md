@@ -1,6 +1,6 @@
 ---
 layout: post
-categories : [ lessons ]
+category : lessons
 tags : [jekyll, code]
 tagline: "SSD(Single Shot Multi-box Detector)"
 author : Gompanghee
