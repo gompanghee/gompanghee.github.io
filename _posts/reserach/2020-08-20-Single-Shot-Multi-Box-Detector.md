@@ -19,14 +19,9 @@ bgcolor: 292929
 SSD 논문과 해외 여러 포스트, 저서들을 토대로 아주 상세한 내용까지 작성해보려 합니다.
 >> 이제 막 입문하는 분, 수학을 잘 모르시는 분도 읽기 쉽게 준비했습니다.
 
-<details>
-<summary>서론</summary>
-<p>
-# 사물 인식(Object Detection)
+# 서론 : 사물 인식(Object Detection)
 
 사물 인식은 크게 세가지 방식으로 나눌 수 있습니다.
 
 첫 번째로 이미지 전체를 인식해 하나의 이미지로 표현하는 개체가 어떤 것인지 분류하는 Object Detection이 있습니다.
-</p>
-</details>
 
