@@ -13,20 +13,10 @@ extensions: [fenced_code_blocks]
 excerpt_separator: "<!--more-->"
 url: https://gompanghee.github.io
 baseurl: "/gompanghee.github.io"
-# Themes are encouraged to use these universal variables
-# so be sure to set them if your theme uses them.
-#
-
-#Google Ad Words Data from scripts code (using Google responsive options) and ad client
-data-ad-slot: 2973388149
-data-ad-client: ca-pub-9204963049240271
-google_ad_client: ca-pub-9204963049240271
 
 post_limit: 5
 
-
 title : Gompanghee
-tagline: A responsive templeate built for jekyll3
 author :
   name : Gwanghee Lee
   email : manggu251@gmail.com
