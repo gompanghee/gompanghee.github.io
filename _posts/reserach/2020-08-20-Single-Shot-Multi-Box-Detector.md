@@ -31,7 +31,7 @@ bgcolor: 292929
 
 3. 하나의 이미지에 사물들이 어떤 형태를 가지고 있는지 분리하는 'Segmentation'
 
-이 세 단계를 묶어 'Detection'이라는 키워드를 사용할 수 있습니다.
+이 중 'Classification'과 'Recognition'을 묶어 'Detection'이라는 키워드를 사용할 수 있습니다.
 
 쉬운 이해를 위해 그림으로 표현하면 이렇습니다.
 
