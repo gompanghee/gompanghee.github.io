@@ -5,7 +5,7 @@ tags : [jekyll, code]
 tagline: "SSD(Single Shot Multi-box Detector)"
 author : Gompanghee
 keywords: SSD, Single shot Multi-box Detector, Object Detection, Object Recognition
-
+canonical: https://fullit.github.io
 ---
 {% include JB/setup %}
 
