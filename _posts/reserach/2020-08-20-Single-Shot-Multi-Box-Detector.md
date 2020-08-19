@@ -10,8 +10,6 @@ bgcolor: 292929
 ---
 {% include JB/setup %}
 
-<!--{% include post-side-bar.html %}-->
-
 안녕하세요. 제 Git Page의 첫 게시물로 SSD(Single shot Multi-box Detector)에 대한 포스팅을 해보려 합니다.
 
 1년 전(2019년) SSD에 대해 궁금한 것이 너무 많았지만 상세한 자료를 보는게 쉽지 않았습니다.
