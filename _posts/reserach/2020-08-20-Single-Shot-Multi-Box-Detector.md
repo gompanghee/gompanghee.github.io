@@ -38,4 +38,6 @@ bgcolor: 292929
 
 ![인식의 종류](/assets/img/Detections.png)
 
+Classification은 이미지를 전체적으로 인식하고, Recognition은 이미지에 표현된 여러가지 개체를 인식하며, Segmentation은 이미지에 표현된 개체들의 경계까지 인식합니다.
+
 즉, SSD는 사물을 박스로 추측하기 때문에 한 이미지에 표현된 여러 사물들을 식별해내기 위한 Recognition 모델입니다.
