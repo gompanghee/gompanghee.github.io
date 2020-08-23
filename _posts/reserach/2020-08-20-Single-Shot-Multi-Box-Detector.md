@@ -20,7 +20,7 @@ bgcolor: 292929
 
 
 
-## 서론 : 단계별 사물 인식
+## 서론 I : 단계별 사물 인식
 
 시작하기에 앞서, 이미지 인식은 목적에 따라 세 단계로 나눌 수 있습니다. 
 
@@ -41,3 +41,32 @@ bgcolor: 292929
 Classification은 이미지를 전체적으로 인식하고, Recognition은 이미지에 표현된 여러가지 개체를 인식하며, Segmentation은 이미지에 표현된 개체들의 경계까지 인식합니다.
 
 즉, SSD는 사물을 박스로 추측하기 때문에 한 이미지에 표현된 여러 사물들을 식별해내기 위한 Recognition 모델입니다.
+
+
+
+## 서론 II : Classification의 원리와 Recognition의 어려움
+
+Classification은 CNN의 기본 원리인 Sliding Window 탐색 기법으로 이미지에 (인공지능의 입장에서)원하는 픽셀에 영향력을 강하게 주어 이미지를 분류하는 기준을 정하도록 학습하는 원리를 갖고 있습니다.
+
+즉, 이미지가 어떤 특징을 담고 있는지는 분석할 수 있지만 신경망을 통해 얻어낸 특징이 이미지에서 어떤 좌표를 통해 얻어낸 특징인지는 알 수 없습니다. 물론 역추적 마스킹을 통해 어느정도 특징을 발생시킨 픽셀을 추측할 순 있지만 해당 픽셀이 정확히 어떤 개체를 의미하는지는 알아낼 수 없습니다.
+
+그러므로 일반적인 구조의 CNN을 이용해서 한 번에 여러 개체의 위치를 찾아 식별하는 것은 매우 힘든일입니다.
+
+그렇기에 SSD를 통해 신경망은 복잡해지지만 인식 성능과 동작 속도가 빠른 새로운 구조를 제안하고 있습니다.
+
+
+
+## 개요 : 전체적인 SSD 구조
+
+SSD의 구조는 크게 2개의 신경망이 연결되어 있는 구조로 되어있습니다. 입력을 받아 이미지의 특징을 파악해내는 신경망을 'Core Network' 라고 가칭해보고, 이미지의 특징을 받아 Box를 추측해내는 신경망을 'Bounding Box Network(이하 BBox Network)'라고 가칭해보겠습니다.
+논문에 실린 이미지를 인용해서 이 개념을 표현해보자면 이렇습니다.
+
+[그림]
+
+Core Network에서 이미지의 특징을 충분히 추출하고, BBox Network에서 여러가지 크기의 Box를 추측하는 구조로 되어있습니다. 이 말은 즉, Core Network는 분리될 수 있기에 어떤 신경망으로든 대체가능하며 BBox Network는 Box를 추측하는 도구로써 사용됩니다. 즉, Core Network에서 얼마나 정밀하고 빠르게 특징을 추출하냐에 따라 SSD의 성능이 좌우된다고 할 수 있습니다.
+
+요컨대, Core Network는 교체가 가능하고 그 성능에 따라 Box 추측 성능이 달라질 수 있다는 말이 됩니다.
+
+그러므로 같은 SSD 모델이더라도 Core Network로 Inception을 사용하는 모델과 MobileNet을 사용하는 모델의 성능과 속도 차이가 발생하는 것입니다.
+
+(참고 : SSD 모델명은 SSD_Inception_500... 또는 SSD_MobileNet_300... 등과 같이 표현합니다. SSD_Inception_500...은 입력을 500x500 사이즈로 받고 'SSD' BBox Network로 Wrapping한 Inception 모델이라는 뜻이며, SSD_MobileNet_300은 입력을 300x300 사이즈로 받고 'SSD' BBox Network로 Wrapping한 MobileNet 모델이라는 뜻입니다. YOLO_Inception도 같은 맥락으로 Inception을 'YOLO' BBox Network로 Wrapping 했다는 뜻이 됩니다.)
