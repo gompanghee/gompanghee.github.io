@@ -58,7 +58,7 @@ Classification은 CNN의 기본 원리인 Sliding Window 탐색 기법으로 이
 
 ## 개요 : 전체적인 SSD 구조
 
-SSD의 구조는 크게 2개의 신경망이 연결되어 있는 구조로 되어있습니다. 입력을 받아 이미지의 특징을 파악해내는 신경망을 'Core Network' 라고 가칭해보고, 이미지의 특징을 받아 Box를 추측해내는 신경망을 'Bounding Box Network(이하 BBox Network)'라고 가칭해보겠습니다.
+SSD의 구조는 크게 2개의 신경망이 연결되어있는 구조입니다. 입력을 받아 이미지의 수 많은 특징을 추출해내는 신경망을 'Core Network', 이미지의 특징을 받아 Box를 추측해내는 신경망을 'Bounding Box Network(이하 BBox Network)'라고 해보겠습니다.
 논문에 실린 이미지를 인용해서 이 개념을 표현해보자면 이렇습니다.
 
 [그림]
