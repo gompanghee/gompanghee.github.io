@@ -69,4 +69,4 @@ Core Network에서 이미지의 특징을 충분히 추출하고, BBox Network�
 
 그러므로 같은 SSD 모델이라도 Inception을 사용하는 모델과 MobileNet을 사용하는 모델의 성능과 속도 차이가 발생하는 것입니다.
 
->> [참고] SSD 모델명은 SSD_Inception_500... 또는 SSD_MobileNet_300... 등과 같이 표현합니다. SSD_Inception_500...은 입력을 500x500 사이즈로 받고 'SSD' BBox Network로 Wrapping한 Inception 모델이라는 뜻이며, SSD_MobileNet_300은 입력을 300x300 사이즈로 받고 'SSD' BBox Network로 Wrapping한 MobileNet 모델이라는 뜻입니다. YOLO_Inception도 같은 맥락으로 Inception을 'YOLO' BBox Network로 Wrapping 했다는 뜻이 됩니다.)
+>> SSD 모델명은 SSD_Inception_500... 또는 SSD_MobileNet_300... 등과 같이 표현합니다. SSD_Inception_500...은 입력을 500x500 사이즈로 받고 'SSD' BBox Network로 Wrapping한 Inception 모델이라는 뜻이며, SSD_MobileNet_300은 입력을 300x300 사이즈로 받고 'SSD' BBox Network로 Wrapping한 MobileNet 모델이라는 뜻입니다. YOLO_Inception도 같은 맥락으로 Inception을 'YOLO' BBox Network로 Wrapping 했다는 뜻이 됩니다.)
