@@ -63,10 +63,10 @@ SSD의 구조는 크게 2개의 신경망이 연결되어 있는 구조로 되�
 
 [그림]
 
-Core Network에서 이미지의 특징을 충분히 추출하고, BBox Network에서 여러가지 크기의 Box를 추측하는 구조로 되어있습니다. 이 말은 즉, Core Network는 분리될 수 있기에 어떤 신경망으로든 대체가능하며 BBox Network는 Box를 추측하는 도구로써 사용됩니다. 즉, Core Network에서 얼마나 정밀하고 빠르게 특징을 추출하냐에 따라 SSD의 성능이 좌우된다고 할 수 있습니다.
+Core Network에서 이미지의 특징을 충분히 추출하고, BBox Network에서 여러가지 크기의 Box를 추측하는 구조로 되어있습니다. 이 말은 즉, Core Network는 분리될 수 있기에 어떤 신경망으로든 대체가능하며 BBox Network는 Box를 추측하는 도구로써 사용됩니다. 그렇기에 Core Network에서 얼마나 정밀하고 빠르게 특징을 추출하냐에 따라 SSD의 성능이 좌우된다고 할 수 있습니다.
 
 요컨대, Core Network는 교체가 가능하고 그 성능에 따라 Box 추측 성능이 달라질 수 있다는 말이 됩니다.
 
-그러므로 같은 SSD 모델이더라도 Core Network로 Inception을 사용하는 모델과 MobileNet을 사용하는 모델의 성능과 속도 차이가 발생하는 것입니다.
+그러므로 같은 SSD 모델이더라도 Inception을 사용하는 모델과 MobileNet을 사용하는 모델의 성능과 속도 차이가 발생하는 것입니다.
 
-(참고 : SSD 모델명은 SSD_Inception_500... 또는 SSD_MobileNet_300... 등과 같이 표현합니다. SSD_Inception_500...은 입력을 500x500 사이즈로 받고 'SSD' BBox Network로 Wrapping한 Inception 모델이라는 뜻이며, SSD_MobileNet_300은 입력을 300x300 사이즈로 받고 'SSD' BBox Network로 Wrapping한 MobileNet 모델이라는 뜻입니다. YOLO_Inception도 같은 맥락으로 Inception을 'YOLO' BBox Network로 Wrapping 했다는 뜻이 됩니다.)
+>> [참고] SSD 모델명은 SSD_Inception_500... 또는 SSD_MobileNet_300... 등과 같이 표현합니다. SSD_Inception_500...은 입력을 500x500 사이즈로 받고 'SSD' BBox Network로 Wrapping한 Inception 모델이라는 뜻이며, SSD_MobileNet_300은 입력을 300x300 사이즈로 받고 'SSD' BBox Network로 Wrapping한 MobileNet 모델이라는 뜻입니다. YOLO_Inception도 같은 맥락으로 Inception을 'YOLO' BBox Network로 Wrapping 했다는 뜻이 됩니다.)
