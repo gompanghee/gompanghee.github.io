@@ -44,15 +44,21 @@ Classification은 이미지를 전체적으로 인식하고, Recognition은 이�
 
 
 
-## 서론 II : Classification의 원리와 Recognition의 어려움
+## 서론 II : Classification과 Recognition 신경망 구조
 
-Classification은 CNN의 기본 원리인 Sliding Window 탐색 기법으로 이미지에 (인공지능의 입장에서)원하는 픽셀에 영향력을 강하게 주어 이미지를 분류하는 기준을 정하도록 학습하는 원리를 갖고 있습니다.
+Classification 신경망(이하 분류망)과 Recognition 신경망(이하 식별망)의 차이는 모두가 짐작할 수 있듯이 출력에 있습니다. 
+분류망은 원하는 값을 즉시 출력하도록 설계되어 있습니다. 예를 들어 숫자 필기 이미지를 인식한다고 했을 때 이미지를 분류망에 입력해 0~9를 표현하는 10개의 출력을 하도록 되어 있습니다.
 
-즉, 이미지가 어떤 특징을 담고 있는지는 분석할 수 있지만 신경망을 통해 얻어낸 특징이 이미지에서 어떤 좌표를 통해 얻어낸 특징인지는 알 수 없습니다. 물론 역추적 마스킹을 통해 어느정도 특징을 발생시킨 픽셀을 추측할 순 있지만 해당 픽셀이 정확히 어떤 개체를 의미하는지는 알아낼 수 없습니다.
+[그림 : MNIST 숫자 인식 신경망]
 
-그러므로 일반적인 구조의 CNN을 이용해서 한 번에 여러 개체의 위치를 찾아 식별하는 것은 매우 힘든일입니다.
+하지만 식별망은 어떨까요? 만약 분류망처럼 원하는 출력을 그대로 한다고 생각해봅시다. 앞서 언급한 숫자 필기 인식을 업그레이드하여 1개의 이미지에 다수의 필기가 표현된다고 가정합니다. 그렇다면, 식별망의 출력은 1개의 개체당 식별 코드(Identifier)와 좌표(Coordinates)로 이루어져 있을 것이고, 이를 '필드'라고 지칭해보겠습니다. 여기까지는 좋습니다. 1개의 필드 크기는 고정되어 있거든요. 문제는 필드의 개수가 고정되어 있지 않다는 겁니다. 요컨대, 출력의 크기가 항상 고정되어 있지 않다고 할 수 있습니다.
+>> '그러면 신경망의 출력을 유동적으로 조절하면 되지 않나?' 라는 의문을 가질 수 있겠지만, 인공신경망은 자료 구조에서 표현하는 그래프 구조를 갖고 있습니다. 즉, 수 많은 노드들이 있고 모든 노드들이 연결되어 연산합니다. 그렇기에 신경망의 출력이 조절되면 노드들의 연결이 변경된다는 의미이기도 하기 때문에 학습을 시도할 때마다 신경망이 연산 능력을 잃게되는 현상이 발생합니다.
 
-그렇기에 SSD를 통해 신경망은 복잡해지지만 인식 성능과 동작 속도가 빠른 새로운 구조를 제안하고 있습니다.
+[그림]
+
+SSD와 YOLO 등 Recognition을 다룬 논문에서는 이 문제를 해결하기 위해 마치 사용자 입력을 위한 배열을 선언하듯 넉넉하게 필드 공간을 미리 만들어놓는 방법을 사용했습니다.
+
+SSD는 여기에 좋은 아이디어를 추가해 다양한 크기의 개체를 빠르면서도 정확하게 예측해내도록 설계했습니다
 
 
 
@@ -69,4 +75,9 @@ Core Network에서 이미지의 특징을 충분히 추출하고, BBox Network�
 
 그러므로 같은 SSD 모델이라도 Inception을 사용하는 모델과 MobileNet을 사용하는 모델의 성능과 속도 차이가 발생하는 것입니다.
 
->> SSD 모델명은 SSD_Inception_500... 또는 SSD_MobileNet_300... 등과 같이 표현합니다. SSD_Inception_500...은 입력을 500x500 사이즈로 받고 'SSD'를 BBox Network로 Wrapping한 Inception 모델이라는 뜻이며, SSD_MobileNet_300은 입력을 300x300 사이즈로 받고 'SSD'를 BBox Network로 Wrapping한 MobileNet 모델이라는 뜻입니다. YOLO_Inception도 같은 맥락으로 Inception을 'YOLO'를 BBox Network로 Wrapping 했다는 뜻이 됩니다.)
+>> SSD 모델명은 SSD_Inception_500... 또는 SSD_MobileNet_300... 등과 같이 표현합니다. SSD_Inception_500...은 입력을 500x500 사이즈로 받고 'SSD'를 BBox Network로 Wrapping한 Inception 모델이라는 뜻이며, SSD_MobileNet_300은 입력을 300x300 사이즈로 받고 'SSD'를 BBox Network로 Wrapping한 MobileNet 모델이라는 뜻입니다. YOLO_Inception도 같은 맥락으로 Inception을 'YOLO'라는 BBox Network로 Wrapping 했다는 뜻이 됩니다.
+
+
+
+
+>> CNN은 <a href="https://www.google.com/search?q=Sliding+window">Sliding Window 탐색 기법</a>으로 이미지에 (인공지능의 입장에서)원하는 픽셀에 영향력을 강하게 주어 이미지를 분류하는 기준을 정하도록 학습하는 원리를 갖고 있습니다.
