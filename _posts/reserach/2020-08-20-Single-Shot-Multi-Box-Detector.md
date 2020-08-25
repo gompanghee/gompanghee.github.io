@@ -71,8 +71,9 @@ SSD와 YOLO 등 Recognition을 다룬 논문에서는 이 문제를 해결하기
 
 또, SSD는 여기에 좋은 아이디어를 추가해 다양한 크기의 개체를 빠르면서도 정확하게 예측해내도록 설계했습니다.
 
-
-# 본론 : Single Shot Multi-box Detector
+   
+   
+# 본론
 
 ## 전체적인 구조
 
