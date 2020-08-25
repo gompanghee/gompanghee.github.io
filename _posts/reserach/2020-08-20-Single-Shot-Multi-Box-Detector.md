@@ -74,7 +74,7 @@ SSD와 YOLO 등 Recognition을 다룬 논문에서는 이 문제를 해결하기
 
 # 본론 : Single Shot Multi-box Detector
 
-## 전체적인 SSD 구조
+## 전체적인 구조
 
 SSD의 구조는 크게 2개의 신경망이 연결되어있는 구조입니다. 입력을 받아 이미지의 수 많은 특징을 추출해내는 신경망을 'Core Network', 이미지의 특징을 받아 Box를 추측해내는 신경망을 'Bounding Box Network(이하 BBox Network)'라고 해보겠습니다.
 논문에 실린 이미지를 인용해서 이 개념을 표현해보자면 이렇습니다.
