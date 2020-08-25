@@ -42,6 +42,7 @@ Classification은 이미지를 전체적으로 인식하고, Recognition은 이�
 
 즉, SSD는 사물을 박스로 추측하기 때문에 한 이미지에 표현된 여러 사물들을 식별해내기 위한 Recognition 모델입니다.
 
+>> Compute Vision에서 주로 사용되는 CNN은 <a href="https://www.google.com/search?q=Sliding+window">Sliding Window 탐색 기법</a>으로 이미지에 (인공지능의 입장에서)원하는 픽셀에 영향력을 강하게 주어 이미지를 분류하는 기준을 정하도록 학습하는 원리를 갖고 있습니다.
 
 
 ## 서론 II : Classification과 Recognition 구조 차이
@@ -65,8 +66,6 @@ Classification 신경망(이하 분류망)과 Recognition 신경망(이하 식�
 
 >> '그러면 신경망의 출력을 유동적으로 조절하면 되지 않나?' 라는 의문을 가질 수 있겠지만, 인공신경망은 자료 구조에서 표현하는 그래프 구조를 갖고 있습니다. 즉, 수 많은 노드들이 있고 모든 노드들이 연결되어 연산합니다. 그렇기에 신경망의 출력이 조절되면 노드들의 연결이 변경된다는 의미이기도 하기 때문에 학습을 시도할 때마다 신경망이 연산 능력을 잃게되는 현상이 발생합니다.
 
-[그림]
-
 SSD와 YOLO 등 Recognition을 다룬 논문에서는 이 문제를 해결하기 위해 마치 사용자 입력을 위한 배열을 선언하듯 필드 공간을 넉넉하게 만드는 방법을 사용했습니다. 이 방법에 대해서는 본론에서 소개하겠습니다.
 
 또, SSD는 여기에 좋은 아이디어를 추가해 다양한 크기의 개체를 빠르면서도 정확하게 예측해내도록 설계했습니다.
@@ -75,7 +74,7 @@ SSD와 YOLO 등 Recognition을 다룬 논문에서는 이 문제를 해결하기
    
 # 본론
 
-## 전체적인 구조
+## 신경망 구조
 
 SSD의 구조는 크게 2개의 신경망이 연결되어있는 구조입니다. 입력을 받아 이미지의 수 많은 특징을 추출해내는 신경망을 'Core Network', 이미지의 특징을 받아 Box를 추측해내는 신경망을 'Bounding Box Network(이하 BBox Network)'라고 해보겠습니다.
 논문에 실린 이미지를 인용해서 이 개념을 표현해보자면 이렇습니다.
@@ -91,6 +90,18 @@ Core Network에서 이미지의 특징을 충분히 추출하고, BBox Network�
 >> SSD 모델명은 SSD_Inception_500... 또는 SSD_MobileNet_300... 등과 같이 표현합니다. SSD_Inception_500...은 입력을 500x500 사이즈로 받고 'SSD'를 BBox Network로 Wrapping한 Inception 모델이라는 뜻이며, SSD_MobileNet_300은 입력을 300x300 사이즈로 받고 'SSD'를 BBox Network로 Wrapping한 MobileNet 모델이라는 뜻입니다. YOLO_Inception도 같은 맥락으로 Inception을 'YOLO'라는 BBox Network로 Wrapping 했다는 뜻이 됩니다.
 
 
+## 출력 구조
+
+한 개체당 하나의 필드로 이루어져 있다고 언급했습니다. 이 필드는 어떻게 구성되어 있는지 먼저 살펴보겠습니다.
+
+[그림 : 개체당 필드 그림]
+
+학습에 사용된 개체의 종류가 N가지라면 필드의 앞 부분은 어떤 개체인지 분류하는 Softmax 값들이 N+1개가 있고, 나머지 뒤 4개의 값은 해당 개체의 좌표라 할 수 있습니다. 여기서 분류 값이 N+1개인 이유는 학습에 사용되지 못한 개체를 Negative(False)로 표현하기 위해 맨 앞 값을 ‘background’라는 이름으로 추가했기 때문입니다.
+>> 예를 들자면, 자동차와 사람을 학습시키려 하는데 강아지나 고양이가 이미지에 포함돼있다면 0번 인덱스인 ‘background’로 분류시켜 Negative(False)임을 명시하는 것입니다.
+
+SSD 논문에서 사용된 SSD_VGG16 모델 기준으로 앞서 언급된 필드가 8732개가 생성됩니다. 여기까지는 YOLO와 크게 다른점은 없습니다. SSD는 추가로 아이디어를 적용해 개체의 크기별 인식률 개선했습니다.
+
+먼저, Core_Network에서 가장 날 것(Raw)에 가까운 특징들을 가지고 필드를 생성합니다.
 
 
->> CNN은 <a href="https://www.google.com/search?q=Sliding+window">Sliding Window 탐색 기법</a>으로 이미지에 (인공지능의 입장에서)원하는 픽셀에 영향력을 강하게 주어 이미지를 분류하는 기준을 정하도록 학습하는 원리를 갖고 있습니다.
+
