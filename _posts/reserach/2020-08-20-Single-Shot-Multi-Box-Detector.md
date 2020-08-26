@@ -42,7 +42,7 @@ Classification은 이미지를 전체적으로 인식하고, Recognition은 이�
 
 즉, SSD는 사물을 박스로 추측하기 때문에 한 이미지에 표현된 여러 사물들을 식별해내기 위한 Recognition 모델입니다.
 
->> Compute Vision에서 주로 사용되는 CNN은 <a href="https://www.google.com/search?q=Sliding+window">Sliding Window 탐색 기법</a>으로 이미지에 (인공지능의 입장에서)원하는 픽셀에 영향력을 강하게 주어 이미지를 분류하는 기준을 정하도록 학습하는 원리를 갖고 있습니다.
+>> Computer Vision에서 주로 사용되는 CNN은 <a href="https://www.google.com/search?q=Sliding+window">Sliding Window 탐색 기법</a>으로 (인공지능의 입장에서)원하는 픽셀에 영향력을 강하게 주어 이미지를 분류하는 기준을 정하도록 학습하는 원리를 갖고 있습니다.
 
 
 ## 서론 II : Classification과 Recognition 구조 차이
