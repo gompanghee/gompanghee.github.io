@@ -106,3 +106,5 @@ SSD 논문에서 사용된 SSD_VGG16 모델 기준으로 앞서 언급된 필드
 먼저, Core_Network에서 가장 날 것(Raw)에 가까운 특징들을 가지고 5,776개의 필드를 생성합니다. 그 다음 FC7 레이어에서 특징을 더 조합하여 2,166개의 필드를 생성하고, Conv8_2 레이어에서 더 조합된 특징으로 600개의 필드를 생성합니다. 이 과정을 반복해 BBox Network의 레이어를 거칠수록 점점 넓은 픽셀에서 깊은 특징을 파악하여 박스를 예측할 수 있게 됩니다. 
 
 ![개체당 필드 그림](/assets/img/image001.png)
+
+<script data-ad-client="ca-pub-1976400763389018" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
