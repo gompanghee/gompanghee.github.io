@@ -1,5 +1,5 @@
 ---
-layout: post
+layout: post.bak
 title: Single Shot Multi-box Detector
 categories : [ Research ]
 tagline: "for object recognition"
