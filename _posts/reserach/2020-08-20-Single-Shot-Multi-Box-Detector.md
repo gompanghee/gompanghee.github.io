@@ -1,5 +1,5 @@
 ---
-layout: post.bak
+layout: post
 title: Single Shot Multi-box Detector
 categories : [ Research ]
 tagline: "for object recognition"
@@ -38,7 +38,7 @@ bgcolor: 292929
 
 ![인식의 종류](/assets/img/Detections.png)
 
-Classification은 이미지를 전체적으로 인식하고, Recognition은 이미지에 표현된 여러가지 개체를 인식하며, Segmentation은 이미지에 표현된 개체들의 경계까지 인식합니다.
+Classification은 이미지를 전체적으로 인식하고, Recognition은 이미지에 표현된 여러 개체의 위치와 크기를 인식하며, Segmentation은 이미지에 표현된 개체들이 어떤 형태인지 인식합니다.
 
 즉, SSD는 사물을 박스로 추측하기 때문에 한 이미지에 표현된 여러 사물들을 식별해내기 위한 Recognition 모델입니다.
 
@@ -76,14 +76,14 @@ SSD와 YOLO 등 Recognition을 다룬 논문에서는 이 문제를 해결하기
 
 ## 신경망 구조
 
-SSD의 구조는 크게 2개의 신경망이 연결되어있는 구조입니다. 입력을 받아 이미지의 수 많은 특징을 추출해내는 신경망을 'Core Network', 이미지의 특징을 받아 Box를 추측해내는 신경망을 'Bounding Box Network(이하 BBox Network)'라고 해보겠습니다.
+SSD의 구조는 크게 2개의 신경망이 연결되어있는 구조입니다. 입력을 받아 이미지의 수 많은 특징을 추출해내는 신경망을 'Backbone Network', 이 특징들을 받아 Box를 예측해내는 신경망을 'Extra Network' 또는 'Feature Extractor', 'Bounding Box Network(이하 BBox Network)' 라고 합니다. 이 글에서는 이해를 위해 Backbone Network와 BBox Network 라는 말로 풀어보겠습니다.
 논문에 실린 이미지를 인용해서 이 개념을 표현해보자면 이렇습니다.
 
-![논문의 Network 이미지에서 구별된 Core, BBox](/assets/img/image008.png)
+![논문의 Network 이미지에서 구별된 Backbone, BBox](/assets/img/image008.png)
 
-Core Network에서 이미지의 특징을 충분히 추출하고, BBox Network에서 여러가지 크기의 Box를 추측하는 구조로 되어있습니다. 이 말은 즉, Core Network는 분리될 수 있기에 어떤 신경망으로든 대체가능하며 BBox Network는 Box를 추측하는 도구로써 사용됩니다. 그렇기에 Core Network에서 얼마나 정밀하고 빠르게 특징을 추출하냐에 따라 SSD의 성능이 좌우된다고 할 수 있습니다.
+Backbone Network에서 이미지의 특징을 충분히 추출하고, BBox Network에서 여러가지 크기의 Box를 추측하는 구조로 되어있습니다. 이 말은 즉, Backbone Network는 분리될 수 있기에 어떤 신경망으로든 대체가능하며 BBox Network는 Box를 추측하는 도구로써 사용됩니다. 그렇기에 Backbone Network에서 얼마나 정밀하고 빠르게 특징을 추출하냐에 따라 SSD의 성능이 좌우된다고 할 수 있습니다.
 
-요컨대, Core Network는 교체가 가능하고 그 성능에 따라 Box 추측 성능이 달라질 수 있다는 말이 됩니다.
+요컨대, Backbone Network는 교체가 가능하고 그 성능에 따라 Box 추측 성능이 달라질 수 있다는 말이 됩니다.
 
 그러므로 같은 SSD 모델이라도 Inception을 사용하는 모델과 MobileNet을 사용하는 모델의 성능과 속도 차이가 발생하는 것입니다.
 
@@ -101,10 +101,8 @@ Core Network에서 이미지의 특징을 충분히 추출하고, BBox Network�
 
 ![개체당 필드 그림](/assets/img/image002.png)
 
-SSD 논문에서 사용된 SSD_VGG16 모델 기준으로 앞서 언급된 필드가 8,732개가 생성됩니다. 여기까지는 YOLO와 크게 다른점은 없습니다. SSD는 추가로 아이디어를 적용해 개체의 크기별 인식률 개선했습니다.
+SSD 논문에서 사용된 SSD_VGG16 모델 기준으로 앞서 언급된 필드가 8,732개가 생성됩니다. 여기까지는 YOLO와 크게 다른점은 없습니다. SSD는 추가로 아이디어를 적용해 개체의 크기별 인식율을 개선했습니다.
 
-먼저, Core_Network에서 가장 날 것(Raw)에 가까운 특징들을 가지고 5,776개의 필드를 생성합니다. 그 다음 FC7 레이어에서 특징을 더 조합하여 2,166개의 필드를 생성하고, Conv8_2 레이어에서 더 조합된 특징으로 600개의 필드를 생성합니다. 이 과정을 반복해 BBox Network의 레이어를 거칠수록 점점 넓은 픽셀에서 깊은 특징을 파악하여 박스를 예측할 수 있게 됩니다. 
+먼저, Backbone_Network에서 가장 날 것(Raw)에 가까운 특징들을 가지고 5,776개의 필드를 생성합니다. 그 다음 FC7 레이어에서 특징을 더 조합하여 2,166개의 필드를 생성하고, Conv8_2 레이어에서 더 조합된 특징으로 600개의 필드를 생성합니다. 이 과정을 반복해 BBox Network의 레이어를 거칠수록 점점 넓은 픽셀에서 깊은 특징을 파악하여 박스를 예측할 수 있게 됩니다. 
 
 ![개체당 필드 그림](/assets/img/image001.png)
-
-<script data-ad-client="ca-pub-1976400763389018" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
