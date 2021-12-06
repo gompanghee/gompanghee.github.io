@@ -44,6 +44,7 @@ canonical: https://gompanghee.github.io
  .c-formContainer {
 	 position: relative;
 	 font-weight: 700;
+     font-size: 4em;
 }
  .c-form, .c-form__toggle {
 	 position: absolute;
@@ -132,9 +133,9 @@ canonical: https://gompanghee.github.io
     <input class="c-checkbox" type="checkbox" id="checkbox">
     <div class="c-formContainer">
       <form class="c-form" action="">
-        <input class="c-form__input" placeholder="Code" type="text" required="">
-        <label class="c-form__buttonLabel" for="checkbox">
-          <button class="c-form__button" type="button" onclick="window.location.href='https://asq.kr/'+document.getElementById('code').value.replace(' ', '').toLowerCase()">Submit</button>
+        <input class="c-form__input" placeholder="Code" type="text" required="" id="code">
+        <label class="c-form__buttonLabel" for="checkbox" onclick="window.location.href='https://asq.kr/'+document.getElementById('code').value.replace(' ', '').toLowerCase()">
+          <button class="c-form__button" type="button">Submit</button>
         </label>
         <label class="c-form__toggle" for="checkbox" data-title="Type code"></label>
       </form>
