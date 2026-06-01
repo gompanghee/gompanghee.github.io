@@ -17,7 +17,7 @@ const Modal = dynamic(
   { ssr: false }
 )
 
-const rootId = rootNotionPageId.replace(/-/g, '')
+const rootId = (rootNotionPageId || '').replace(/-/g, '')
 
 // Map Notion page ids to clean internal routes so links stay on this site.
 function mapPageUrl(pageId) {
@@ -27,13 +27,21 @@ function mapPageUrl(pageId) {
 }
 
 export default function NotionPage({ recordMap }) {
-  if (!recordMap) {
+  // An unpublished page returns an empty recordMap (no exception). Rendering it
+  // would make react-notion-x dereference an undefined block id and crash the
+  // build, so bail out to a friendly message instead.
+  const hasContent =
+    recordMap &&
+    recordMap.block &&
+    Object.keys(recordMap.block).length > 0
+
+  if (!hasContent) {
     return (
       <div style={{ padding: 48, textAlign: 'center', fontFamily: 'sans-serif' }}>
         <h1>잠시만요…</h1>
         <p>
-          Notion 페이지를 불러오지 못했습니다. Notion에서 해당 페이지가
-          “웹에 게시(Share to web)” 되어 있는지 확인해 주세요.
+          Notion 페이지를 불러오지 못했습니다. Notion에서 해당 페이지를
+          <strong> “웹에 게시(Publish to web)” </strong>로 공개했는지 확인해 주세요.
         </p>
       </div>
     )
