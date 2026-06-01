@@ -1,0 +1,472 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<script>document.documentElement.className += " js";</script>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Gwanghee Lee · 이광희</title>
+<meta name="description" content="인공지능을 연구하는 박사과정 이광희의 개인 홈페이지 — Personal homepage of Gwanghee Lee, a PhD researcher in Artificial Intelligence." />
+<meta name="author" content="Gwanghee Lee" />
+<link rel="canonical" href="https://gompanghee.com/" />
+
+<!-- Open Graph -->
+<meta property="og:type" content="website" />
+<meta property="og:title" content="Gwanghee Lee · 이광희" />
+<meta property="og:description" content="인공지능을 연구하는 박사과정 — PhD researcher in Artificial Intelligence." />
+<meta property="og:url" content="https://gompanghee.com/" />
+<meta property="og:locale" content="ko_KR" />
+
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='22' fill='%237c5cff'/%3E%3Ctext x='50' y='68' font-size='56' font-family='Arial,sans-serif' font-weight='700' fill='white' text-anchor='middle'%3EG%3C/text%3E%3C/svg%3E" />
+
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Noto+Sans+KR:wght@400;500;700;800&display=swap" rel="stylesheet" />
+
+<style>
+  :root {
+    --bg: #0c0d12;
+    --bg-soft: #14161e;
+    --card: #181b25;
+    --card-2: #1d2130;
+    --border: #272b3a;
+    --text: #eceef5;
+    --muted: #9aa1b4;
+    --accent: #7c5cff;
+    --accent-2: #4dd0e1;
+    --accent-grad: linear-gradient(135deg, #7c5cff 0%, #4dd0e1 100%);
+    --shadow: 0 10px 40px -12px rgba(0,0,0,.6);
+    --radius: 18px;
+    --maxw: 1080px;
+  }
+  html[data-theme="light"] {
+    --bg: #f6f7fb;
+    --bg-soft: #eef0f6;
+    --card: #ffffff;
+    --card-2: #f4f5fa;
+    --border: #e4e7f0;
+    --text: #1a1c25;
+    --muted: #5c6376;
+    --shadow: 0 10px 40px -16px rgba(40,45,90,.25);
+  }
+
+  * { box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body {
+    margin: 0;
+    font-family: "Inter", "Noto Sans KR", system-ui, -apple-system, sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    line-height: 1.65;
+    -webkit-font-smoothing: antialiased;
+    overflow-x: hidden;
+  }
+  a { color: inherit; text-decoration: none; }
+  ::selection { background: var(--accent); color: #fff; }
+
+  .wrap { max-width: var(--maxw); margin: 0 auto; padding: 0 24px; }
+
+  /* ---------- Nav ---------- */
+  header.nav {
+    position: sticky; top: 0; z-index: 50;
+    backdrop-filter: blur(14px);
+    background: color-mix(in srgb, var(--bg) 78%, transparent);
+    border-bottom: 1px solid var(--border);
+  }
+  .nav-inner {
+    display: flex; align-items: center; justify-content: space-between;
+    height: 64px;
+  }
+  .brand { display: flex; align-items: center; gap: 10px; font-weight: 700; letter-spacing: -.01em; }
+  .brand .logo {
+    width: 30px; height: 30px; border-radius: 9px;
+    background: var(--accent-grad);
+    display: grid; place-items: center; color: #fff; font-weight: 800; font-size: 15px;
+  }
+  .nav-links { display: flex; align-items: center; gap: 26px; }
+  .nav-links a.link { color: var(--muted); font-size: 14px; font-weight: 500; transition: color .2s; }
+  .nav-links a.link:hover { color: var(--text); }
+  .nav-tools { display: flex; align-items: center; gap: 8px; }
+  .pill {
+    border: 1px solid var(--border); background: var(--card);
+    color: var(--text); border-radius: 999px; height: 34px; padding: 0 12px;
+    font-size: 13px; font-weight: 600; cursor: pointer; display: inline-flex;
+    align-items: center; gap: 6px; transition: border-color .2s, transform .1s;
+  }
+  .pill:hover { border-color: var(--accent); }
+  .pill:active { transform: scale(.96); }
+  @media (max-width: 640px){ .nav-links .link { display:none; } }
+
+  /* ---------- Hero ---------- */
+  .hero { position: relative; padding: 92px 0 64px; }
+  .hero::before {
+    content:""; position:absolute; inset:-200px 0 auto 0; height: 520px; z-index:-1;
+    background:
+      radial-gradient(600px 300px at 20% 0%, rgba(124,92,255,.22), transparent 60%),
+      radial-gradient(600px 320px at 85% 10%, rgba(77,208,225,.18), transparent 60%);
+    filter: blur(8px);
+  }
+  .avatar {
+    width: 108px; height: 108px; border-radius: 50%;
+    background: var(--accent-grad); padding: 3px; margin-bottom: 26px;
+    box-shadow: var(--shadow);
+  }
+  .avatar > div {
+    width: 100%; height: 100%; border-radius: 50%;
+    background: var(--bg-soft); display: grid; place-items: center;
+    font-size: 40px; font-weight: 800; color: var(--text);
+  }
+  .eyebrow {
+    display: inline-flex; align-items:center; gap:8px;
+    font-size: 13px; font-weight: 600; color: var(--accent-2);
+    background: color-mix(in srgb, var(--accent) 12%, transparent);
+    border: 1px solid color-mix(in srgb, var(--accent) 30%, transparent);
+    padding: 5px 12px; border-radius: 999px; margin-bottom: 22px;
+  }
+  .eyebrow .dot { width:7px; height:7px; border-radius:50%; background: var(--accent-2); box-shadow:0 0 0 4px color-mix(in srgb, var(--accent-2) 25%, transparent); }
+  h1.title {
+    font-size: clamp(38px, 6vw, 64px); line-height: 1.05; margin: 0 0 8px;
+    letter-spacing: -.025em; font-weight: 800;
+  }
+  h1.title .en { font-size: clamp(18px, 2.4vw, 26px); color: var(--muted); font-weight: 600; letter-spacing: 0; }
+  .role { font-size: clamp(17px, 2.2vw, 21px); color: var(--muted); margin: 6px 0 28px; max-width: 640px; }
+  .cta-row { display: flex; flex-wrap: wrap; gap: 12px; }
+  .btn {
+    display: inline-flex; align-items: center; gap: 9px; height: 48px; padding: 0 22px;
+    border-radius: 12px; font-weight: 600; font-size: 15px; cursor: pointer;
+    border: 1px solid transparent; transition: transform .12s, box-shadow .2s, border-color .2s, background .2s;
+  }
+  .btn:active { transform: translateY(1px); }
+  .btn-primary { background: var(--accent-grad); color: #fff; box-shadow: 0 8px 24px -8px rgba(124,92,255,.6); }
+  .btn-primary:hover { box-shadow: 0 12px 30px -8px rgba(124,92,255,.75); }
+  .btn-ghost { background: var(--card); color: var(--text); border-color: var(--border); }
+  .btn-ghost:hover { border-color: var(--accent); }
+
+  /* ---------- Sections ---------- */
+  section { padding: 72px 0; border-top: 1px solid var(--border); }
+  .sec-head { margin-bottom: 38px; }
+  .sec-tag { font-size: 13px; font-weight: 700; letter-spacing: .12em; text-transform: uppercase; color: var(--accent); }
+  .sec-title { font-size: clamp(26px, 4vw, 36px); font-weight: 800; letter-spacing: -.02em; margin: 8px 0 0; }
+  .lead { color: var(--muted); font-size: 17px; max-width: 720px; margin-top: 14px; }
+
+  /* About text card */
+  .about-card {
+    background: var(--card); border: 1px solid var(--border); border-radius: var(--radius);
+    padding: 32px; box-shadow: var(--shadow); font-size: 18px;
+  }
+  .about-card p { margin: 0 0 14px; }
+  .about-card p:last-child { margin-bottom: 0; }
+  .about-card strong { color: var(--accent-2); font-weight: 700; }
+
+  /* Grids */
+  .grid { display: grid; gap: 16px; }
+  .grid-build { grid-template-columns: repeat(4, 1fr); }
+  .grid-3 { grid-template-columns: repeat(3, 1fr); }
+  @media (max-width: 860px){ .grid-build { grid-template-columns: repeat(2,1fr);} .grid-3{ grid-template-columns: repeat(2,1fr);} }
+  @media (max-width: 520px){ .grid-build, .grid-3 { grid-template-columns: 1fr; } }
+
+  .tile {
+    background: var(--card); border: 1px solid var(--border); border-radius: 14px;
+    padding: 20px; transition: transform .15s, border-color .2s, background .2s;
+  }
+  .tile:hover { transform: translateY(-3px); border-color: color-mix(in srgb, var(--accent) 45%, var(--border)); }
+  .tile .ico { font-size: 26px; }
+  .tile h3 { margin: 12px 0 2px; font-size: 16px; font-weight: 700; }
+  .tile p { margin: 0; color: var(--muted); font-size: 13.5px; }
+
+  /* Skills */
+  .chips { display: flex; flex-wrap: wrap; gap: 12px; }
+  .chip {
+    background: var(--card); border: 1px solid var(--border); border-radius: 12px;
+    padding: 14px 18px; display: flex; flex-direction: column; gap: 2px; min-width: 150px;
+  }
+  .chip b { font-size: 15.5px; }
+  .chip span { font-size: 12.5px; color: var(--muted); }
+
+  /* Writing cards */
+  .grid-write { display: grid; grid-template-columns: repeat(2,1fr); gap: 16px; }
+  @media (max-width: 720px){ .grid-write { grid-template-columns: 1fr; } }
+  .post {
+    display: flex; flex-direction: column; gap: 8px; position: relative;
+    background: var(--card); border: 1px solid var(--border); border-radius: 16px;
+    padding: 24px; transition: transform .15s, border-color .2s;
+    overflow: hidden;
+  }
+  .post::after {
+    content:"↗"; position:absolute; top:20px; right:22px; color: var(--muted);
+    font-size:18px; opacity:.5; transition: opacity .2s, transform .2s;
+  }
+  .post:hover { transform: translateY(-3px); border-color: color-mix(in srgb, var(--accent) 50%, var(--border)); }
+  .post:hover::after { opacity:1; transform: translate(2px,-2px); color: var(--accent-2); }
+  .post .cat { font-size: 12px; font-weight: 700; letter-spacing:.04em; color: var(--accent); }
+  .post h3 { margin: 0; font-size: 19px; font-weight: 700; letter-spacing:-.01em; padding-right: 26px; }
+  .post p { margin: 0; color: var(--muted); font-size: 14px; }
+
+  .tags { display:flex; flex-wrap:wrap; gap:8px; margin-top: 6px; }
+  .tag { font-size:12.5px; color:var(--muted); border:1px solid var(--border); border-radius:999px; padding:5px 11px; }
+
+  /* Contact */
+  .contact-grid { display:grid; grid-template-columns: repeat(3,1fr); gap:16px; }
+  @media (max-width:720px){ .contact-grid{ grid-template-columns:1fr; } }
+  .contact {
+    display:flex; align-items:center; gap:14px;
+    background: var(--card); border:1px solid var(--border); border-radius:14px; padding:18px 20px;
+    transition: border-color .2s, transform .15s;
+  }
+  .contact:hover{ border-color: var(--accent); transform: translateY(-2px); }
+  .contact .c-ico{ width:42px; height:42px; border-radius:11px; background: var(--card-2); display:grid; place-items:center; font-size:20px; flex:none; }
+  .contact b{ font-size:14.5px; display:block; }
+  .contact span{ font-size:13px; color:var(--muted); word-break: break-all; }
+
+  /* Footer */
+  footer { border-top:1px solid var(--border); padding: 36px 0 56px; color: var(--muted); font-size: 13.5px; }
+  .foot-inner{ display:flex; justify-content:space-between; align-items:center; gap:16px; flex-wrap:wrap; }
+
+  /* Reveal animation — only hidden when JS is active, so content stays visible without JS */
+  html.js .reveal { opacity:0; transform: translateY(18px); transition: opacity .6s ease, transform .6s ease; }
+  html.js .reveal.in { opacity:1; transform:none; }
+  @media (prefers-reduced-motion: reduce){ html.js .reveal{ opacity:1; transform:none; } html{ scroll-behavior:auto; } }
+
+  /* lang helper: elements toggle via [data-lang] on <html> */
+  html[data-lang="ko"] .en-only { display:none; }
+  html[data-lang="en"] .ko-only { display:none; }
+</style>
+</head>
+<body>
+
+<header class="nav">
+  <div class="wrap nav-inner">
+    <a class="brand" href="#top">
+      <span class="logo">G</span>
+      <span>Gwanghee&nbsp;Lee</span>
+    </a>
+    <nav class="nav-links">
+      <a class="link" href="#about"><span class="ko-only">소개</span><span class="en-only">About</span></a>
+      <a class="link" href="#build"><span class="ko-only">개발</span><span class="en-only">Work</span></a>
+      <a class="link" href="#skills"><span class="ko-only">기술</span><span class="en-only">Skills</span></a>
+      <a class="link" href="#writing"><span class="ko-only">글</span><span class="en-only">Writing</span></a>
+      <a class="link" href="#contact"><span class="ko-only">연락</span><span class="en-only">Contact</span></a>
+    </nav>
+    <div class="nav-tools">
+      <button class="pill" id="langBtn" title="Language">🌐 <span id="langLabel">EN</span></button>
+      <button class="pill" id="themeBtn" title="Theme" aria-label="Toggle theme">🌙</button>
+    </div>
+  </div>
+</header>
+
+<a id="top"></a>
+<main>
+
+  <!-- HERO -->
+  <section class="hero" style="border-top:none;">
+    <div class="wrap">
+      <div class="avatar reveal"><div>이</div></div>
+      <div class="eyebrow reveal"><span class="dot"></span><span class="ko-only">인공지능 연구 · 박사과정</span><span class="en-only">AI Research · Ph.D. Candidate</span></div>
+      <h1 class="title reveal">
+        <span class="ko-only">이광희</span><span class="en-only">Gwanghee Lee</span><br/>
+        <span class="en"><span class="ko-only">Gwanghee Lee</span><span class="en-only">이광희</span></span>
+      </h1>
+      <p class="role reveal">
+        <span class="ko-only">인공지능을 연구하는 박사과정입니다. 연구를 시작하기 전에는 딥러닝부터 웹·모바일까지 다양한 소프트웨어를 만들었습니다.</span>
+        <span class="en-only">A Ph.D. candidate researching Artificial Intelligence. Before research, I built software across deep learning, vision, web and mobile.</span>
+      </p>
+      <div class="cta-row reveal">
+        <a class="btn btn-primary" href="https://www.notion.so/7263b53fadb4451ca93541ed3a1f73d7" target="_blank" rel="noopener">
+          <span class="ko-only">블로그 보기</span><span class="en-only">Read the blog</span> →
+        </a>
+        <a class="btn btn-ghost" href="#contact">
+          <span class="ko-only">연락하기</span><span class="en-only">Get in touch</span>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ABOUT -->
+  <section id="about">
+    <div class="wrap">
+      <div class="sec-head reveal">
+        <div class="sec-tag">About</div>
+        <h2 class="sec-title"><span class="ko-only">소개</span><span class="en-only">Introduction</span></h2>
+      </div>
+      <div class="about-card reveal">
+        <div class="ko-only">
+          <p>안녕하세요. <strong>이광희</strong>입니다.</p>
+          <p>현재는 박사과정으로 <strong>인공지능</strong>을 연구하고 있습니다. 연구 생활을 시작하기 전에는 딥러닝 기반 소프트웨어부터 컴퓨터 비전, 웹·모바일 애플리케이션, 블록체인 모듈까지 폭넓은 영역의 소프트웨어를 개발했습니다.</p>
+          <p>딥러닝·컴퓨터 비전·수학·알고리즘·논문 리뷰에 대한 글을 꾸준히 기록하고 있습니다.</p>
+        </div>
+        <div class="en-only">
+          <p>Hello, I'm <strong>Gwanghee Lee</strong>.</p>
+          <p>I'm currently a Ph.D. candidate researching <strong>Artificial Intelligence</strong>. Before my research career, I built a wide range of software — from deep-learning systems and computer vision to web &amp; mobile apps and blockchain modules.</p>
+          <p>I regularly write about deep learning, computer vision, mathematics, algorithms, and paper reviews.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- BUILD -->
+  <section id="build">
+    <div class="wrap">
+      <div class="sec-head reveal">
+        <div class="sec-tag">Experience</div>
+        <h2 class="sec-title"><span class="ko-only">개발해 온 것들</span><span class="en-only">What I've built</span></h2>
+        <p class="lead"><span class="ko-only">연구 이전, 그리고 지금까지 다뤄 온 분야들입니다.</span><span class="en-only">Domains I've worked across, before and during research.</span></p>
+      </div>
+      <div class="grid grid-build">
+        <div class="tile reveal"><div class="ico">💡</div><h3><span class="ko-only">딥러닝 소프트웨어</span><span class="en-only">Deep Learning</span></h3><p>Deep Learning based Software</p></div>
+        <div class="tile reveal"><div class="ico">📷</div><h3><span class="ko-only">컴퓨터 비전</span><span class="en-only">Computer Vision</span></h3><p>Computer Vision Software</p></div>
+        <div class="tile reveal"><div class="ico">📱</div><h3><span class="ko-only">안드로이드 앱</span><span class="en-only">Android Apps</span></h3><p>Android Application</p></div>
+        <div class="tile reveal"><div class="ico">🌐</div><h3><span class="ko-only">웹 · 백엔드</span><span class="en-only">Web &amp; Back-end</span></h3><p>Web-based App / Back-end</p></div>
+        <div class="tile reveal"><div class="ico">🎨</div><h3><span class="ko-only">웹 프론트엔드</span><span class="en-only">Web Front-end</span></h3><p>Web Front-end</p></div>
+        <div class="tile reveal"><div class="ico">🖥️</div><h3><span class="ko-only">윈도우 앱</span><span class="en-only">Windows Apps</span></h3><p>Windows Application</p></div>
+        <div class="tile reveal"><div class="ico">🐧</div><h3><span class="ko-only">리눅스 앱</span><span class="en-only">Linux Apps</span></h3><p>Linux Application</p></div>
+        <div class="tile reveal"><div class="ico">🔒</div><h3><span class="ko-only">블록체인 모듈</span><span class="en-only">Blockchain</span></h3><p>Blockchain Module</p></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SKILLS -->
+  <section id="skills">
+    <div class="wrap">
+      <div class="sec-head reveal">
+        <div class="sec-tag">Stack</div>
+        <h2 class="sec-title"><span class="ko-only">사용하는 언어</span><span class="en-only">Languages I use</span></h2>
+      </div>
+      <div class="chips reveal">
+        <div class="chip"><b>Python</b><span>TensorFlow · PyTorch</span></div>
+        <div class="chip"><b>Java</b><span>JVM</span></div>
+        <div class="chip"><b>C / C++</b><span>Systems</span></div>
+        <div class="chip"><b>JavaScript</b><span>Node.js · React.js</span></div>
+        <div class="chip"><b>Visual Basic</b><span>Windows</span></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- WRITING -->
+  <section id="writing">
+    <div class="wrap">
+      <div class="sec-head reveal">
+        <div class="sec-tag">Writing</div>
+        <h2 class="sec-title"><span class="ko-only">글 &amp; 블로그</span><span class="en-only">Writing &amp; Blog</span></h2>
+        <p class="lead"><span class="ko-only">Notion에 기록한 글들로 연결됩니다.</span><span class="en-only">These link out to my posts on Notion.</span></p>
+      </div>
+
+      <div class="tags reveal" style="margin-bottom:22px;">
+        <span class="tag">Deep Learning</span>
+        <span class="tag">Computer Vision</span>
+        <span class="tag">Mathematics</span>
+        <span class="tag">Algorithm</span>
+        <span class="tag">Paper Review</span>
+      </div>
+
+      <div class="grid-write">
+        <a class="post reveal" href="https://www.notion.so/a6d10dbc11784102bb45e4d9b563ca2e" target="_blank" rel="noopener">
+          <span class="cat">Deep Learning</span>
+          <h3><span class="ko-only">딥러닝</span><span class="en-only">Deep Learning</span></h3>
+          <p><span class="ko-only">딥러닝 개념과 모델을 정리한 글 모음</span><span class="en-only">Notes and explanations on deep learning models</span></p>
+        </a>
+        <a class="post reveal" href="https://www.notion.so/a9ed9a42d7d14eab9aa5655c52bf7be0" target="_blank" rel="noopener">
+          <span class="cat">Paper Review</span>
+          <h3>YOLO, You Only Look Once</h3>
+          <p><span class="ko-only">실시간 객체 검출 논문 리뷰</span><span class="en-only">A review of the real-time object detection paper</span></p>
+        </a>
+        <a class="post reveal" href="https://www.notion.so/a410e61a0c8b4426951754d0e41ebdf6" target="_blank" rel="noopener">
+          <span class="cat">Essay</span>
+          <h3><span class="ko-only">인공지능, 그리고 미래의 일</span><span class="en-only">AI and the Future of Work</span></h3>
+          <p><span class="ko-only">인공지능이 바꿀 일의 모습에 대한 단상</span><span class="en-only">Thoughts on how AI will reshape work</span></p>
+        </a>
+        <a class="post reveal" href="https://www.notion.so/396cc7b37f6142d880c36da6a15b8d9d" target="_blank" rel="noopener">
+          <span class="cat">Blog &amp; Essay</span>
+          <h3><span class="ko-only">블로그 &amp; 에세이</span><span class="en-only">Blog &amp; Essay</span></h3>
+          <p><span class="ko-only">일상과 생각을 기록한 글들</span><span class="en-only">Everyday notes and reflections</span></p>
+        </a>
+        <a class="post reveal" href="https://www.notion.so/d5e1249b9db549db8e8ad4b594224650" target="_blank" rel="noopener">
+          <span class="cat">Photography</span>
+          <h3><span class="ko-only">사진</span><span class="en-only">Photography</span></h3>
+          <p><span class="ko-only">직접 찍은 사진들</span><span class="en-only">Photos I've taken</span></p>
+        </a>
+        <a class="post reveal" href="https://www.notion.so/7263b53fadb4451ca93541ed3a1f73d7" target="_blank" rel="noopener">
+          <span class="cat">All</span>
+          <h3><span class="ko-only">전체 글 보기 →</span><span class="en-only">Browse all posts →</span></h3>
+          <p><span class="ko-only">Notion 홈에서 모든 카테고리를 둘러보세요</span><span class="en-only">Explore every category on the Notion home</span></p>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section id="contact">
+    <div class="wrap">
+      <div class="sec-head reveal">
+        <div class="sec-tag">Contact</div>
+        <h2 class="sec-title"><span class="ko-only">연락하기</span><span class="en-only">Get in touch</span></h2>
+      </div>
+      <div class="contact-grid">
+        <a class="contact reveal" href="mailto:manggu251@gmail.com">
+          <span class="c-ico">✉️</span>
+          <span><b>Email</b><span>manggu251@gmail.com</span></span>
+        </a>
+        <a class="contact reveal" href="https://github.com/gompanghee" target="_blank" rel="noopener">
+          <span class="c-ico">🐙</span>
+          <span><b>GitHub</b><span>github.com/gompanghee</span></span>
+        </a>
+        <a class="contact reveal" href="https://pf.kakao.com/_WxlcdG/friend" target="_blank" rel="noopener">
+          <span class="c-ico">💬</span>
+          <span><b><span class="ko-only">카카오 구독</span><span class="en-only">Kakao</span></b><span><span class="ko-only">채널 추가하기</span><span class="en-only">Subscribe on Kakao</span></span></span>
+        </a>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap foot-inner">
+    <span>© <span id="year">2026</span> Gwanghee Lee · 이광희</span>
+    <span><span class="ko-only">Notion 콘텐츠로 만든 개인 홈페이지</span><span class="en-only">Personal homepage built from Notion content</span></span>
+  </div>
+</footer>
+
+<script>
+  // ----- Theme -----
+  var root = document.documentElement;
+  var themeBtn = document.getElementById('themeBtn');
+  function applyTheme(t){
+    root.setAttribute('data-theme', t);
+    themeBtn.textContent = t === 'light' ? '☀️' : '🌙';
+    try { localStorage.setItem('theme', t); } catch(e){}
+  }
+  var savedTheme = null;
+  try { savedTheme = localStorage.getItem('theme'); } catch(e){}
+  applyTheme(savedTheme || 'dark');
+  themeBtn.addEventListener('click', function(){
+    applyTheme(root.getAttribute('data-theme') === 'light' ? 'dark' : 'light');
+  });
+
+  // ----- Language -----
+  var langBtn = document.getElementById('langBtn');
+  var langLabel = document.getElementById('langLabel');
+  function applyLang(l){
+    root.setAttribute('data-lang', l);
+    root.setAttribute('lang', l);
+    langLabel.textContent = l === 'ko' ? 'EN' : '한국어';
+    try { localStorage.setItem('lang', l); } catch(e){}
+  }
+  var savedLang = null;
+  try { savedLang = localStorage.getItem('lang'); } catch(e){}
+  applyLang(savedLang || 'ko');
+  langBtn.addEventListener('click', function(){
+    applyLang(root.getAttribute('data-lang') === 'ko' ? 'en' : 'ko');
+  });
+
+  // ----- Year -----
+  document.getElementById('year').textContent = new Date().getFullYear();
+
+  // ----- Reveal on scroll -----
+  var io = new IntersectionObserver(function(entries){
+    entries.forEach(function(e){ if(e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target); } });
+  }, { threshold: 0.12 });
+  document.querySelectorAll('.reveal').forEach(function(el, i){
+    el.style.transitionDelay = (Math.min(i,6) * 40) + 'ms';
+    io.observe(el);
+  });
+</script>
+</body>
+</html>

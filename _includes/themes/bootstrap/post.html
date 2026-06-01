@@ -1,0 +1,410 @@
+<style>
+  .parallax {
+  background-image: url('{{ BASE_PATH }}/assets/img/{% if page.img %}{{ page.img }}{% else %}generic.jpg{% endif %}');
+
+  height: 500px;
+
+  background-attachment: fixed;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.mouse_scroll {
+	display: block;
+	margin: 0 auto;
+	width: 24px;
+	height: 100px;
+}
+
+
+.m_scroll_arrows
+{
+  display: block;
+  width: 5px;
+  height: 5px;
+  -ms-transform: rotate(45deg); /* IE 9 */
+  -webkit-transform: rotate(45deg); /* Chrome, Safari, Opera */
+  transform: rotate(45deg);
+   
+  border-right: 2px solid white;
+  border-bottom: 2px solid white;
+  margin: 0 0 3px 4px;
+  
+  width: 16px;
+  height: 16px;
+}
+
+
+.unu
+{
+  margin-top: 1px;
+}
+
+.unu, .doi, .trei
+{
+    -webkit-animation: mouse-scroll 1s infinite;
+    -moz-animation: mouse-scroll 1s infinite;
+    animation: mouse-scroll 1s infinite;
+  
+}
+
+.unu
+{
+  -webkit-animation-delay: .1s;
+  -moz-animation-delay: .1s;
+  -webkit-animation-direction: alternate;
+  
+  animation-direction: alternate;
+  animation-delay: alternate;
+}
+
+.doi
+{
+  -webkit-animation-delay: .2s;
+  -moz-animation-delay: .2s;
+  -webkit-animation-direction: alternate;
+  
+  animation-delay: .2s;
+  animation-direction: alternate;
+  
+  margin-top: -6px;
+}
+
+.trei
+{
+  -webkit-animation-delay: .3s;
+  -moz-animation-delay: .3s;
+  -webkit-animation-direction: alternate;
+  
+  animation-delay: .3s;
+  animation-direction: alternate;
+  
+  
+  margin-top: -6px;
+}
+
+.mouse {
+  height: 42px;
+  width: 24px;
+  border-radius: 14px;
+  transform: none;
+  border: 2px solid white;
+  top: 170px;
+}
+
+.wheel {
+  height: 5px;
+  width: 2px;
+  display: block;
+  margin: 5px auto;
+  background: white;
+  position: relative;
+  
+  height: 4px;
+  width: 4px;
+  border: 2px solid #fff;
+  -webkit-border-radius: 8px;
+          border-radius: 8px;
+}
+
+.wheel {
+  -webkit-animation: mouse-wheel 0.6s linear infinite;
+  -moz-animation: mouse-wheel 0.6s linear infinite;
+  animation: mouse-wheel 0.6s linear infinite;
+}
+
+@-webkit-keyframes mouse-wheel{
+   0% {
+    opacity: 1;
+    -webkit-transform: translateY(0);
+    -ms-transform: translateY(0);
+    transform: translateY(0);
+  }
+
+  100% {
+    opacity: 0;
+    -webkit-transform: translateY(6px);
+    -ms-transform: translateY(6px);
+    transform: translateY(6px);
+  }
+}
+@-moz-keyframes mouse-wheel {
+  0% { top: 1px; }
+  25% { top: 2px; }
+  50% { top: 3px;}
+  75% { top: 2px;}
+  100% { top: 1px;}
+}
+@-o-keyframes mouse-wheel {
+
+   0% { top: 1px; }
+  25% { top: 2px; }
+  50% { top: 3px;}
+  75% { top: 2px;}
+  100% { top: 1px;}
+}
+@keyframes mouse-wheel {
+
+   0% { top: 1px; }
+  25% { top: 2px; }
+  50% { top: 3px;}
+  75% { top: 2px;}
+  100% { top: 1px;}
+}
+
+@-webkit-keyframes mouse-scroll {
+
+  0%   { opacity: 0;}
+  50%  { opacity: .5;}
+  100% { opacity: 1;}
+}
+@-moz-keyframes mouse-scroll {
+
+  0%   { opacity: 0; }
+  50%  { opacity: .5; }
+  100% { opacity: 1; }
+}
+@-o-keyframes mouse-scroll {
+
+  0%   { opacity: 0; }
+  50%  { opacity: .5; }
+  100% { opacity: 1; }
+}
+@keyframes mouse-scroll {
+
+  0%   { opacity: 0; }
+  50%  { opacity: .5; }
+  100% { opacity: 1; }
+}
+
+.button-1{
+  width:100%;
+  height:50px;
+  border:2px solid #34495e;
+  float:left;
+  text-align:center;
+  cursor:pointer;
+  position:relative;
+  box-sizing:border-box;
+  overflow:hidden;
+  
+}
+
+.no-button{
+  width:100%;
+  height:50px;
+  border:2px dashed #34495e;
+  float:left;
+  text-align:center;
+  cursor:default;
+  position:relative;
+  box-sizing:border-box;
+  overflow:hidden;
+  
+}
+
+.no-button span{
+  font-family:'Ubuntu';
+  font-size:16px;
+  color:#34495e;
+  text-decoration:none;
+  line-height:50px;
+  transition:all .5s ease;
+  z-index:2;
+  position:relative;
+}
+
+.no-eff{
+  width:100%;
+  height:50px;
+  top:-2px;
+  right:-100%;
+  background:#34495e;
+  position:absolute;
+  transition:all .5s ease;
+  z-index:1;
+}
+
+.button-1 a{
+  font-family:'Ubuntu';
+  font-size:16px;
+  color:#34495e;
+  text-decoration:none;
+  line-height:50px;
+  transition:all .5s ease;
+  z-index:2;
+  position:relative;
+}
+.eff-1{
+  width:100%;
+  height:50px;
+  top:-2px;
+  right:-100%;
+  background:#34495e;
+  position:absolute;
+  transition:all .5s ease;
+  z-index:1;
+}
+.button-1:hover .eff-1{
+  right:0;
+}
+.button-1:hover a{
+  color:#fff;
+}
+
+.button-4{
+  width:100%;
+  height:50px;
+  border:2px solid #34495e;
+  float:left;
+  text-align:center;
+  cursor:pointer;
+  position:relative;
+  box-sizing:border-box;
+  overflow:hidden;
+  
+}
+.button-4 a{
+  font-family:'Ubuntu';
+  font-size:16px;
+  color:#34495e;
+  text-decoration:none;
+  line-height:50px;
+  transition:all .5s ease;
+  z-index:2;
+  position:relative;
+}
+.eff-4{
+  width:100%;
+  height:50px;
+  left:-100%;
+  background:#34495e;
+  position:absolute;
+  transition:all .5s ease;
+  z-index:1;
+  
+}
+.button-4:hover .eff-4{
+  left:0;
+}
+.button-4:hover a{
+  color:#fff;
+}
+</style>
+
+<script>
+  var log=Date.now();
+
+  window.addEventListener('scroll',() => {
+      if (window.scrollY<nav.offsetTop && Date.now()-log>nav.offsetTop-window.scrollY && Date.now()-log>100) {
+          log=Date.now();
+          nav.scrollIntoView({behavior: 'smooth'});
+      }
+  });
+
+</script>
+
+<div id="fullpage" style="cursor:pointer;" onclick="nav.scrollIntoView({behavior: 'smooth'});">
+  <div class="section" id="section0">
+    <div style="background-size: cover; background-image:url('{{ BASE_PATH }}/assets/img/{% if page.img %}{{ page.img }}{% else %}generic.jpg{% endif %}')" class="slide parallax">       
+        <div class="jumbotronic" style="text-align: center">
+          <h1 class="heavy">{{ page.title }}</h1>
+          {% if page.tagline %} <h2 class="heavy">{{ page.tagline }}</h2>{% endif %}
+          <div class="mouse_scroll">
+            <div class="mouse">
+              <div class="wheel"></div>
+            </div>
+            <div>
+              <span class="m_scroll_arrows unu"></span>
+              <span class="m_scroll_arrows doi"></span>
+              <span class="m_scroll_arrows trei"></span>
+            </div>
+          </div>
+        </div>
+    </div>
+  </div>
+ </div>
+</div>
+
+{% include themes/bootstrap/nav-bar.html %}
+
+<br />
+<br />
+
+    <div class="container">
+      <div class="row post">
+
+        <div class="col-sm-6">
+        {% unless page.categories == empty %}
+      
+              <h4 class="lead">
+                    {{page.categories | array_to_sentence_string}} :
+              </p>
+        {% endunless %}
+        </div>
+      </div>
+
+      <div class="post">
+        <h1>{{ page.title }}</h1>
+      </div>
+
+      <div class="row">
+
+        <div class="col-sm-12 post">
+
+          <br />
+           {{ content }}
+          <br />
+          <br />
+
+          <div class="row">          
+            <div class="col-sm-6"  style="text-align: center;">
+              <div>
+                {% if page.previous %}
+                <div class="button-1">
+                  <div class="eff-1"></div>
+                  <a href="{{ BASE_PATH }}{{ page.previous.url }}" title="{{ page.previous.title }}">&larr; {{ page.previous.title }}<span data-letters="&larr; {{ page.previous.title }}"></span><span data-letters="&larr; {{ page.previous.title }}"></span></a>
+                </div>
+                
+                {% else %}
+                <div class="no-button">
+                  <div class="no-eff"></div>
+                  No more old posts<span data-letters="&larr; No more old posts"></span><span data-letters="&larr; No more old posts"></span></a>
+                </div>
+                {% endif %}
+                </div>
+            </div>
+            
+            <div class="col-sm-6"  style="text-align: center;">
+              <div>
+                {% if page.next %}
+                <div class="button-4">
+                  <div class="eff-4"></div>
+                  <a href="{{ BASE_PATH }}{{ page.next.url }}" title="{{ page.next.title }}">{{ page.next.title }} &rarr;<span data-letters="{{ page.next.title }} &rarr;"></span><span data-letters="{{ page.next.title }} &rarr;"></span></a>
+                </div>
+                {% else %}
+                <div class="no-button">
+                  <div class="no-eff"></div>
+                  <span>No more new posts</span><span data-letters="&larr; No more old posts"></span><span data-letters="&larr; No more old posts"></span>
+                </div>
+                {% endif %}
+              </div>
+            </div>
+          </div>
+
+          <hr>
+          <div>
+            <h2>Comments</h2>
+            {% include JB/comments %}
+          </div>
+
+
+                
+
+        </div>       
+      </div>
+    </div>
+<script>
+  window.onload=setTimeout(()=>{nav.scrollIntoView({behavior: 'smooth'});},1500)
+</script>

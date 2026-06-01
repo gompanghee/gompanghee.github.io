@@ -1,0 +1,82 @@
+---
+layout: landing
+title: Gompanghee
+tagline: "The Developer"
+<!--group: navigation-->
+bgcolor: 292929
+img : landing.jpg
+---
+<!--{% include JB/setup %}-->
+
+<style>
+  .image_btn{
+    z-index: 0;
+    transition: transform 0.5s ease;
+  }
+
+  .image_btn:hover{
+    z-index: 100;
+  }
+
+  @media (min-width: 768px){
+    .image_btn:hover.matL{
+      transform: matrix3d(1, 0, 0, 0.0001, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1);
+    }
+  }
+
+  @media (min-width: 768px){
+    .image_btn:hover.matR{
+      transform: matrix3d(1, 0, 0, -0.0001, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1);
+    }
+  }
+
+  @media (max-width: 767px){
+    .image_btn:hover.matL{
+      transform: matrix3d(1, 0, 0, 0, 0, 1, 0, 0.0001, 0, 0, 1, 0, 0, 0, 0, 1);
+    }
+  }
+
+  @media (max-width: 767px){
+    .image_btn:hover.matR{
+      transform: matrix3d(1, 0, 0, 0, 0, 1, 0, -0.0001, 0, 0, 1, 0, 0, 0, 0, 1);
+    }
+  }
+
+  
+    
+</style>
+
+<!-- Stack the columns on mobile by making one full-width and the other half-width -->
+<div class="container-fluid nopadding">
+  <div class="post">
+
+    <!-- Fist image block -->
+    <div class="nopadding row vertical-align">
+
+      <div class="col-md-6 text-center image_btn matL" style="display: table; height:100%; cursor: pointer; background-image: url(https://gompanghee.github.io/assets/img/about.jpg); background-size: cover;" onclick="window.location.href='https://gompanghee.github.io/about';">
+        <h2 style="color: #FFFFFF; text-shadow: #292929A0 0px 0px 5px; display: table-cell; vertical-align: middle; font-size: 5rem;">About</h2>
+      </div>
+
+      <div class="col-md-6 text-center image_btn matR" style="display: table; height:100%; cursor: pointer; background-image: url(https://gompanghee.github.io/assets/img/archive2.jpg); background-size: cover;" onclick="window.location.href='https://gompanghee.github.io/archive';">
+        <h2 style="color: #FFFFFF; text-shadow: #292929A0 0px 0px 5px; display: table-cell; vertical-align: middle; font-size: 5rem;">Archive</h2>
+      </div>
+    </div>
+  </div>  
+</div>
+
+<script>
+  window.onresize=(data)=>{
+      var h=data.target.innerHeight; 
+      var w=data.target.innerWidth; 
+
+      var obj_list=document.getElementsByClassName("image_btn");
+
+      if(w>=768){
+        for(i=0; i<obj_list.length; i++)
+          obj_list[i].style.height=h+"px";
+      }else{
+        for(i=0; i<obj_list.length; i++)
+          obj_list[i].style.height=(h/2)+"px";
+      }
+    };
+</script>
