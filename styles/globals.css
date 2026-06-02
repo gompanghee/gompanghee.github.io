@@ -1,24 +1,279 @@
-html,
-body {
-  padding: 0;
-  margin: 0;
-  font-family: 'Inter', 'Noto Sans KR', -apple-system, BlinkMacSystemFont,
-    'Segoe UI', Roboto, sans-serif;
+/* =========================================================
+   Blog theme for the Notion-rendered site (react-notion-x)
+   Goal: clean, simple, highly readable — Oopy-like.
+   ========================================================= */
+
+:root {
+  --blog-accent: #2f6fed;
+  --blog-accent-soft: rgba(47, 111, 237, 0.14);
+  --blog-text: #2f3338;
+  --blog-text-strong: #16181d;
+  --blog-muted: #82817c;
+  --blog-bg: #ffffff;
+  --blog-border: #ececea;
+  --blog-surface: #fbfbfa;
+  --blog-font: 'Pretendard Variable', Pretendard, 'Inter', 'Noto Sans KR',
+    -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
 }
 
 * {
   box-sizing: border-box;
 }
 
-a {
-  color: inherit;
+html,
+body {
+  padding: 0;
+  margin: 0;
+  background: var(--blog-bg);
+  color: var(--blog-text);
+  font-family: var(--blog-font);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+  word-break: keep-all; /* nicer Korean line breaks */
 }
 
-/* react-notion-x: keep the content column comfortable */
+::selection {
+  background: var(--blog-accent-soft);
+}
+
+/* ---- react-notion-x design tokens ---- */
 .notion {
-  font-family: inherit;
+  --notion-max-width: 740px;
+  --notion-font: var(--blog-font);
+  font-size: 17px;
+  line-height: 1.78;
+  color: var(--blog-text);
 }
 
+/* =========================================================
+   Top header bar (fullPage nav)
+   ========================================================= */
+.notion-header {
+  background: rgba(255, 255, 255, 0.82);
+  backdrop-filter: saturate(180%) blur(14px);
+  -webkit-backdrop-filter: saturate(180%) blur(14px);
+  border-bottom: 1px solid var(--blog-border);
+  box-shadow: none;
+}
+.notion-header .notion-nav-header {
+  max-width: 1080px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+.notion-search-button {
+  border-radius: 8px;
+  background: var(--blog-surface);
+  border: 1px solid var(--blog-border);
+}
+
+/* =========================================================
+   Page, cover & title
+   ========================================================= */
 .notion-page {
-  padding-bottom: 8vh !important;
+  padding-bottom: 14vh !important;
+}
+.notion-page.notion-page-has-cover {
+  margin-top: 0;
+}
+.notion-page-cover-wrapper,
+.notion-page-cover {
+  max-height: 30vh;
+}
+.notion-page-icon-hero {
+  margin-bottom: 6px;
+}
+
+.notion-title {
+  font-weight: 800;
+  font-size: 2.5rem;
+  line-height: 1.18;
+  letter-spacing: -0.025em;
+  color: var(--blog-text-strong);
+  margin-top: 0.4em;
+}
+
+/* =========================================================
+   Body text & headings
+   ========================================================= */
+.notion-text {
+  padding: 5px 0;
+}
+
+.notion-h1,
+.notion-h2,
+.notion-h3 {
+  font-weight: 700;
+  letter-spacing: -0.015em;
+  line-height: 1.32;
+  color: var(--blog-text-strong);
+}
+.notion-h1 {
+  font-size: 1.75rem;
+  margin-top: 2em;
+}
+.notion-h2 {
+  font-size: 1.4rem;
+  margin-top: 1.7em;
+}
+.notion-h3 {
+  font-size: 1.18rem;
+  margin-top: 1.35em;
+}
+
+.notion-page-content strong,
+.notion-text strong {
+  color: var(--blog-text-strong);
+}
+
+/* =========================================================
+   Links
+   ========================================================= */
+.notion-link {
+  color: var(--blog-accent);
+  border-bottom: 1px solid rgba(47, 111, 237, 0.28);
+  text-decoration: none;
+  transition: border-color 0.15s ease, background 0.15s ease;
+}
+.notion-link:hover {
+  border-bottom-color: var(--blog-accent);
+  background: var(--blog-accent-soft);
+}
+
+/* Inline subpage links */
+.notion-page-link {
+  border-radius: 10px;
+  transition: background 0.15s ease;
+}
+.notion-page-link:hover {
+  background: var(--blog-surface);
+}
+
+/* =========================================================
+   Callouts (Introduction page uses many)
+   ========================================================= */
+.notion-callout {
+  border-radius: 12px;
+  border: 1px solid var(--blog-border);
+  background: var(--blog-surface);
+  padding: 16px 18px;
+  margin: 10px 0;
+}
+
+/* =========================================================
+   Quote / divider / code
+   ========================================================= */
+.notion-quote {
+  border-left: 3px solid var(--blog-text-strong);
+  padding: 4px 0 4px 20px;
+  font-size: 1.05em;
+  color: var(--blog-text);
+}
+
+.notion-hr {
+  margin: 2.6em 0;
+  border: 0;
+  border-top: 1px solid var(--blog-border);
+}
+
+.notion-code {
+  border-radius: 12px;
+  font-size: 0.88rem;
+  line-height: 1.6;
+}
+.notion-inline-code {
+  color: #c2410c;
+  background: #fbeee6;
+  border-radius: 5px;
+  padding: 0.1em 0.4em;
+  font-size: 0.88em;
+}
+
+/* =========================================================
+   Images / assets
+   ========================================================= */
+.notion-asset-wrapper img,
+.notion-asset-wrapper .notion-image {
+  border-radius: 12px;
+}
+
+/* =========================================================
+   Collections (Posts gallery) -> blog cards
+   ========================================================= */
+.notion-collection {
+  margin: 1.2em 0;
+}
+.notion-collection-header {
+  padding: 10px 0;
+}
+.notion-collection-header-title {
+  font-weight: 700;
+  font-size: 1.25rem;
+  letter-spacing: -0.01em;
+  color: var(--blog-text-strong);
+}
+
+.notion-gallery-grid {
+  grid-gap: 22px;
+  grid-template-columns: repeat(auto-fill, minmax(248px, 1fr));
+}
+
+.notion-collection-card {
+  background: #fff;
+  border: 1px solid var(--blog-border);
+  border-radius: 16px;
+  box-shadow: 0 1px 2px rgba(20, 20, 20, 0.04);
+  overflow: hidden;
+  transition: transform 0.18s ease, box-shadow 0.18s ease,
+    border-color 0.18s ease;
+}
+.notion-collection-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 16px 32px -16px rgba(20, 20, 20, 0.28);
+  border-color: #e0e0dd;
+}
+.notion-collection-card-cover {
+  border-bottom: 1px solid var(--blog-border);
+}
+.notion-collection-card-cover img {
+  transition: transform 0.4s ease;
+}
+.notion-collection-card:hover .notion-collection-card-cover img {
+  transform: scale(1.04);
+}
+.notion-collection-card-body {
+  padding: 16px 18px;
+}
+.notion-collection-card-property {
+  font-size: 0.95rem;
+  line-height: 1.5;
+}
+.notion-collection-card-property:first-child {
+  font-weight: 700;
+  font-size: 1.02rem;
+  color: var(--blog-text-strong);
+}
+
+/* =========================================================
+   Misc tidy-ups
+   ========================================================= */
+.notion-bookmark {
+  border-radius: 12px;
+  border-color: var(--blog-border);
+}
+.notion-collection-row {
+  border-color: var(--blog-border);
+}
+
+/* Comfortable reading on phones */
+@media (max-width: 640px) {
+  .notion {
+    font-size: 16px;
+  }
+  .notion-title {
+    font-size: 2rem;
+  }
+  .notion-gallery-grid {
+    grid-template-columns: 1fr;
+  }
 }
