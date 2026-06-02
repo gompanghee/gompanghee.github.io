@@ -6,14 +6,17 @@ import NotionPage from '../components/NotionPage'
 export async function getStaticProps() {
   try {
     const recordMap = await getNotionPage(rootNotionPageId)
-    return { props: { recordMap }, revalidate: 30 }
+    const blockCount = recordMap && recordMap.block ? Object.keys(recordMap.block).length : 0
+    const debug = `fetched ${blockCount} blocks for id=${rootNotionPageId}`
+    return { props: { recordMap, debug }, revalidate: 30 }
   } catch (err) {
+    const msg = (err && err.message) ? err.message : String(err)
     console.error('Failed to fetch Notion root page:', err)
-    return { props: { recordMap: null }, revalidate: 10 }
+    return { props: { recordMap: null, debug: `error: ${msg} (id=${rootNotionPageId})` }, revalidate: 10 }
   }
 }
 
-export default function Home({ recordMap }) {
+export default function Home({ recordMap, debug }) {
   return (
     <>
       <Head>
@@ -21,7 +24,7 @@ export default function Home({ recordMap }) {
         <meta name="description" content={siteDescription} />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
       </Head>
-      <NotionPage recordMap={recordMap} />
+      <NotionPage recordMap={recordMap} debug={debug} />
     </>
   )
 }

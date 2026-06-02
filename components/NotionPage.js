@@ -26,7 +26,7 @@ function mapPageUrl(pageId) {
   return `/${id}`
 }
 
-export default function NotionPage({ recordMap }) {
+export default function NotionPage({ recordMap, debug }) {
   // An unpublished page returns an empty recordMap (no exception). Rendering it
   // would make react-notion-x dereference an undefined block id and crash the
   // build, so bail out to a friendly message instead.
@@ -43,6 +43,24 @@ export default function NotionPage({ recordMap }) {
           Notion 페이지를 불러오지 못했습니다. Notion에서 해당 페이지를
           <strong> “웹에 게시(Publish to web)” </strong>로 공개했는지 확인해 주세요.
         </p>
+        {debug ? (
+          <pre
+            style={{
+              marginTop: 24,
+              padding: 12,
+              background: '#f3f3f3',
+              color: '#444',
+              fontSize: 12,
+              borderRadius: 8,
+              display: 'inline-block',
+              textAlign: 'left',
+              whiteSpace: 'pre-wrap',
+              wordBreak: 'break-all'
+            }}
+          >
+            {debug}
+          </pre>
+        ) : null}
       </div>
     )
   }
