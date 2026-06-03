@@ -36,7 +36,7 @@ export default function Home({ categories, error }) {
       <main className="container">
         <section className="hero">
           <h1 className="hero-title">
-            {siteNameKo}
+            <span className="hero-ko">{siteNameKo}</span>
             <span className="hero-en">{siteName}</span>
           </h1>
           <p className="hero-tagline">{siteTagline}</p>
