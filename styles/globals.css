@@ -258,7 +258,9 @@ a {
    Article (post / about)
    ========================================================= */
 .article {
-  padding: 48px 0 96px;
+  /* top/bottom only — keep .container's horizontal padding */
+  padding-top: 48px;
+  padding-bottom: 96px;
   /* Reading content (posts + about) keeps the readable sans font. */
   font-family: var(--font);
 }
@@ -587,7 +589,9 @@ a {
 }
 
 .category-page {
-  padding: 40px 0 96px;
+  /* top/bottom only — keep .container's horizontal padding */
+  padding-top: 40px;
+  padding-bottom: 96px;
 }
 .category-head {
   margin-bottom: 38px;
@@ -743,7 +747,18 @@ a {
     flex-direction: column;
     gap: 0;
   }
+  .site-header-inner {
+    height: auto;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
+    padding-top: 12px;
+    padding-bottom: 12px;
+  }
   .site-nav {
-    gap: 16px;
+    width: 100%;
+    flex-wrap: wrap;
+    gap: 12px 18px;
+    font-size: 13px;
   }
 }
