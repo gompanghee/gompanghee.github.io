@@ -61,8 +61,8 @@ a {
   padding: 0 24px;
 }
 
-/* Home: faded sepia photo behind the ivory page (classic, like letterpress) */
-.home-bg {
+/* Site-wide faded photo behind the ivory page (classic, like letterpress) */
+.site-bg {
   position: fixed;
   inset: 0;
   z-index: -1;

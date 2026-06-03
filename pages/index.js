@@ -35,8 +35,6 @@ export default function Home({ categories, error }) {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
       </Head>
 
-      <div className="home-bg" aria-hidden="true" />
-
       <SiteHeader />
 
       <main className="container">
