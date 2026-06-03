@@ -6,6 +6,9 @@ import SiteHeader from '../../components/SiteHeader'
 import SiteFooter from '../../components/SiteFooter'
 import PostGridCard from '../../components/PostGridCard'
 
+// Categories with many posts fetch a thumbnail per post; give ISR room.
+export const config = { maxDuration: 60 }
+
 export async function getStaticPaths() {
   return { paths: [], fallback: 'blocking' }
 }
