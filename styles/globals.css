@@ -7,7 +7,7 @@
   --bg: #faf7ee;         /* very subtle ivory / parchment */
   --ink: #1e1c16;        /* headings */
   --text: #393630;       /* body */
-  --muted: #8d8779;
+  --muted: #6b6557;
   --line: #ebe4d6;
   --line-strong: #2a261d;
   --accent: #c2410c;     /* burnt orange */
@@ -68,8 +68,8 @@ a {
   z-index: -1;
   pointer-events: none;
   background-image: linear-gradient(
-      color-mix(in srgb, var(--bg) 74%, transparent),
-      color-mix(in srgb, var(--bg) 90%, transparent)
+      color-mix(in srgb, var(--bg) 82%, transparent),
+      color-mix(in srgb, var(--bg) 92%, transparent)
     ),
     url('/hero-bg.jpg');
   background-size: cover;
@@ -157,7 +157,7 @@ a {
   max-width: 640px;
   font-size: 1.02rem;
   line-height: 1.85;
-  color: var(--muted);
+  color: var(--text);
   white-space: pre-line; /* honor the line break in the bio */
 }
 
