@@ -1,12 +1,14 @@
 import Link from 'next/link'
 import NotionBlocks from './NotionBlocks'
 import { formatDate } from '../lib/util'
+import { useLang } from '../lib/i18n'
 
 export default function Article({ page, showMeta = true }) {
+  const { t } = useLang()
   return (
     <main className="container article">
       <Link href="/" className="back-link">
-        ← 목록으로
+        {t.backList}
       </Link>
 
       {showMeta && page.category?.length ? (

@@ -5,6 +5,7 @@ import { siteName } from '../../lib/site-config'
 import SiteHeader from '../../components/SiteHeader'
 import SiteFooter from '../../components/SiteFooter'
 import PostGridCard from '../../components/PostGridCard'
+import { useLang } from '../../lib/i18n'
 
 // Categories with many posts fetch a thumbnail per post; give ISR room.
 export const config = { maxDuration: 60 }
@@ -24,6 +25,7 @@ export async function getStaticProps({ params }) {
 }
 
 export default function CategoryPage({ category }) {
+  const { t } = useLang()
   const count = category.posts?.length || 0
   return (
     <>
@@ -35,7 +37,7 @@ export default function CategoryPage({ category }) {
 
       <main className="container category-page">
         <Link href="/" className="back-link">
-          ← 카테고리
+          {t.backCategories}
         </Link>
 
         <div className="category-head">
@@ -46,7 +48,7 @@ export default function CategoryPage({ category }) {
             </div>
           ) : null}
           <h1 className="category-title">{category.title}</h1>
-          <span className="category-count">{count}개의 글</span>
+          <span className="category-count">{t.postsCount(count)}</span>
         </div>
 
         {count > 0 ? (
@@ -56,7 +58,7 @@ export default function CategoryPage({ category }) {
             ))}
           </ul>
         ) : (
-          <p className="cat-empty">아직 발행된 글이 없습니다.</p>
+          <p className="cat-empty">{t.emptyPosts}</p>
         )}
       </main>
 

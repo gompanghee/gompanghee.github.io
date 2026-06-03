@@ -109,6 +109,7 @@ a {
 }
 .site-nav {
   display: flex;
+  align-items: center;
   gap: 22px;
   font-size: 0.95rem;
   font-weight: 500;
@@ -120,6 +121,21 @@ a {
 .site-nav a:hover {
   color: var(--ink);
 }
+.lang-toggle {
+  font-family: inherit;
+  font-size: 13px;
+  color: var(--muted);
+  background: none;
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  padding: 3px 11px;
+  cursor: pointer;
+  transition: color 0.15s ease, border-color 0.15s ease;
+}
+.lang-toggle:hover {
+  color: var(--ink);
+  border-color: var(--muted);
+}
 
 /* =========================================================
    Hero / masthead
@@ -130,26 +146,11 @@ a {
 }
 .hero-title {
   margin: 0;
-  font-size: clamp(1.5rem, 3.2vw, 2rem);
+  font-size: clamp(2rem, 5vw, 2.9rem);
   font-weight: 700;
-  letter-spacing: -0.01em;
+  letter-spacing: -0.02em;
   line-height: 1.2;
   color: var(--ink);
-  display: flex;
-  align-items: baseline;
-  flex-wrap: wrap;
-  gap: 0.5em;
-}
-.hero-ko {
-  font-size: 1.2em; /* 120% of "Gwanghee Lee" */
-  font-weight: 700;
-  color: var(--ink);
-}
-.hero-en {
-  font-size: 1em;
-  font-weight: 500;
-  letter-spacing: 0;
-  color: var(--muted);
 }
 .hero-tagline {
   margin: 22px 0 0;
