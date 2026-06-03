@@ -1,8 +1,9 @@
 import { Html, Head, Main, NextScript } from 'next/document'
+import { bgColor } from '../lib/site-config'
 
 export default function Document() {
   return (
-    <Html lang="ko">
+    <Html lang="ko" style={{ '--bg': bgColor }}>
       <Head>
         {/* Pretendard — clean, highly readable Korean/Latin web font */}
         <link

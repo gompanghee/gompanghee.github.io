@@ -68,8 +68,8 @@ a {
   z-index: -1;
   pointer-events: none;
   background-image: linear-gradient(
-      rgba(250, 247, 238, 0.74),
-      rgba(250, 247, 238, 0.9)
+      color-mix(in srgb, var(--bg) 74%, transparent),
+      color-mix(in srgb, var(--bg) 90%, transparent)
     ),
     url('/hero-bg.jpg');
   background-size: cover;
@@ -85,7 +85,7 @@ a {
   position: sticky;
   top: 0;
   z-index: 50;
-  background: rgba(250, 247, 238, 0.82);
+  background: color-mix(in srgb, var(--bg) 82%, transparent);
   backdrop-filter: saturate(180%) blur(12px);
   -webkit-backdrop-filter: saturate(180%) blur(12px);
   border-bottom: 1px solid var(--line);
