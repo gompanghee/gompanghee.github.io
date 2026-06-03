@@ -4,14 +4,15 @@
    ========================================================= */
 
 :root {
-  --bg: #ffffff;
-  --ink: #16181d;        /* headings */
-  --text: #33363d;       /* body */
-  --muted: #8a8d94;
-  --line: #ececea;
-  --line-strong: #1c1e22;
+  --bg: #faf7ee;         /* very subtle ivory / parchment */
+  --ink: #1e1c16;        /* headings */
+  --text: #393630;       /* body */
+  --muted: #8d8779;
+  --line: #ebe4d6;
+  --line-strong: #2a261d;
   --accent: #c2410c;     /* burnt orange */
-  --accent-soft: #fbeae0;
+  --accent-soft: #f2e8da;
+  --surface: #fffdf7;    /* cream card */
   --maxw: 720px;
   --maxw-wide: 940px;
   --font: 'Pretendard Variable', Pretendard, 'Inter', -apple-system,
@@ -60,6 +61,23 @@ a {
   padding: 0 24px;
 }
 
+/* Home: faded sepia photo behind the ivory page (classic, like letterpress) */
+.home-bg {
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+  background-image: linear-gradient(
+      rgba(250, 247, 238, 0.74),
+      rgba(250, 247, 238, 0.9)
+    ),
+    url('/hero-bg.jpg');
+  background-size: cover;
+  background-position: center 28%;
+  background-repeat: no-repeat;
+  filter: sepia(0.34) contrast(0.96) brightness(1.03);
+}
+
 /* =========================================================
    Header
    ========================================================= */
@@ -67,7 +85,7 @@ a {
   position: sticky;
   top: 0;
   z-index: 50;
-  background: rgba(255, 255, 255, 0.85);
+  background: rgba(250, 247, 238, 0.82);
   backdrop-filter: saturate(180%) blur(12px);
   -webkit-backdrop-filter: saturate(180%) blur(12px);
   border-bottom: 1px solid var(--line);
@@ -521,7 +539,7 @@ a {
 }
 .ccard {
   display: block;
-  background: #fff;
+  background: var(--surface);
   border: 1px solid var(--line);
   border-radius: 18px;
   overflow: hidden;
