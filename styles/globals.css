@@ -1,279 +1,530 @@
 /* =========================================================
-   Blog theme for the Notion-rendered site (react-notion-x)
-   Goal: clean, simple, highly readable — Oopy-like.
+   Minimal magazine theme — custom blog for gompanghee.com
+   Monochrome base + one warm accent, big type, lots of air.
    ========================================================= */
 
 :root {
-  --blog-accent: #2f6fed;
-  --blog-accent-soft: rgba(47, 111, 237, 0.14);
-  --blog-text: #2f3338;
-  --blog-text-strong: #16181d;
-  --blog-muted: #82817c;
-  --blog-bg: #ffffff;
-  --blog-border: #ececea;
-  --blog-surface: #fbfbfa;
-  --blog-font: 'Pretendard Variable', Pretendard, 'Inter', 'Noto Sans KR',
-    -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  --bg: #ffffff;
+  --ink: #16181d;        /* headings */
+  --text: #33363d;       /* body */
+  --muted: #8a8d94;
+  --line: #ececea;
+  --line-strong: #1c1e22;
+  --accent: #c2410c;     /* burnt orange */
+  --accent-soft: #fbeae0;
+  --maxw: 720px;
+  --maxw-wide: 940px;
+  --font: 'Pretendard Variable', Pretendard, 'Inter', -apple-system,
+    BlinkMacSystemFont, 'Segoe UI', Roboto, 'Noto Sans KR', sans-serif;
+  --mono: 'SFMono-Regular', ui-monospace, 'JetBrains Mono', Menlo, Consolas,
+    monospace;
 }
 
 * {
   box-sizing: border-box;
 }
 
-html,
+html {
+  scroll-behavior: smooth;
+}
+
 body {
-  padding: 0;
   margin: 0;
-  background: var(--blog-bg);
-  color: var(--blog-text);
-  font-family: var(--blog-font);
+  background: var(--bg);
+  color: var(--text);
+  font-family: var(--font);
+  font-size: 18px;
+  line-height: 1.8;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-rendering: optimizeLegibility;
-  word-break: keep-all; /* nicer Korean line breaks */
+  word-break: keep-all;
+  overflow-wrap: break-word;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
 }
 
 ::selection {
-  background: var(--blog-accent-soft);
+  background: var(--accent-soft);
 }
 
-/* ---- react-notion-x design tokens ---- */
-.notion {
-  --notion-max-width: 740px;
-  --notion-font: var(--blog-font);
-  font-size: 17px;
-  line-height: 1.78;
-  color: var(--blog-text);
-}
-
-/* =========================================================
-   Top header bar (fullPage nav)
-   ========================================================= */
-.notion-header {
-  background: rgba(255, 255, 255, 0.82);
-  backdrop-filter: saturate(180%) blur(14px);
-  -webkit-backdrop-filter: saturate(180%) blur(14px);
-  border-bottom: 1px solid var(--blog-border);
-  box-shadow: none;
-}
-.notion-header .notion-nav-header {
-  max-width: 1080px;
+.container {
+  max-width: var(--maxw);
   margin: 0 auto;
-  padding: 0 20px;
-}
-.notion-search-button {
-  border-radius: 8px;
-  background: var(--blog-surface);
-  border: 1px solid var(--blog-border);
+  padding: 0 24px;
 }
 
 /* =========================================================
-   Page, cover & title
+   Header
    ========================================================= */
-.notion-page {
-  padding-bottom: 14vh !important;
+.site-header {
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  background: rgba(255, 255, 255, 0.85);
+  backdrop-filter: saturate(180%) blur(12px);
+  -webkit-backdrop-filter: saturate(180%) blur(12px);
+  border-bottom: 1px solid var(--line);
 }
-.notion-page.notion-page-has-cover {
-  margin-top: 0;
+.site-header-inner {
+  max-width: var(--maxw-wide);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 64px;
 }
-.notion-page-cover-wrapper,
-.notion-page-cover {
-  max-height: 30vh;
+.site-brand {
+  font-weight: 800;
+  font-size: 1.2rem;
+  letter-spacing: -0.02em;
+  color: var(--ink);
 }
-.notion-page-icon-hero {
+.site-brand-dot {
+  color: var(--accent);
+}
+.site-nav {
+  display: flex;
+  gap: 22px;
+  font-size: 0.95rem;
+  font-weight: 500;
+}
+.site-nav a {
+  color: var(--muted);
+  transition: color 0.15s ease;
+}
+.site-nav a:hover {
+  color: var(--ink);
+}
+
+/* =========================================================
+   Hero / masthead
+   ========================================================= */
+.hero {
+  padding: 84px 0 48px;
+  border-bottom: 1px solid var(--line);
+}
+.hero-title {
+  margin: 0;
+  font-size: clamp(2.6rem, 7vw, 4rem);
+  font-weight: 800;
+  letter-spacing: -0.04em;
+  line-height: 1.02;
+  color: var(--ink);
+  display: flex;
+  align-items: baseline;
+  flex-wrap: wrap;
+  gap: 0.5em;
+}
+.hero-en {
+  font-size: 0.4em;
+  font-weight: 600;
+  letter-spacing: 0;
+  color: var(--muted);
+}
+.hero-tagline {
+  margin: 22px 0 0;
+  font-size: 1.2rem;
+  color: var(--text);
+}
+.hero-tagline-en {
+  margin: 2px 0 0;
+  font-size: 1rem;
+  color: var(--muted);
+}
+
+/* =========================================================
+   Writing section + post list
+   ========================================================= */
+.writing {
+  padding: 48px 0 24px;
+}
+.section-label {
+  font-size: 0.8rem;
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--muted);
+  margin: 0 0 8px;
+}
+
+.post-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+.post-item {
+  border-bottom: 1px solid var(--line);
+}
+.post-link {
+  display: flex;
+  gap: 22px;
+  align-items: center;
+  padding: 26px 0;
+  transition: opacity 0.15s ease;
+}
+.post-link:hover .post-title {
+  color: var(--accent);
+}
+.post-thumb {
+  flex: 0 0 132px;
+  width: 132px;
+  height: 88px;
+  border-radius: 10px;
+  overflow: hidden;
+  background: var(--line);
+}
+.post-thumb img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.4s ease;
+}
+.post-link:hover .post-thumb img {
+  transform: scale(1.05);
+}
+.post-thumb-empty {
+  background: linear-gradient(135deg, #f3f3f1, #e9e9e6);
+}
+.post-text {
+  flex: 1 1 auto;
+  min-width: 0;
+}
+.post-cat {
+  display: inline-block;
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--accent);
   margin-bottom: 6px;
 }
-
-.notion-title {
-  font-weight: 800;
-  font-size: 2.5rem;
-  line-height: 1.18;
-  letter-spacing: -0.025em;
-  color: var(--blog-text-strong);
-  margin-top: 0.4em;
-}
-
-/* =========================================================
-   Body text & headings
-   ========================================================= */
-.notion-text {
-  padding: 5px 0;
-}
-
-.notion-h1,
-.notion-h2,
-.notion-h3 {
+.post-title {
+  margin: 0;
+  font-size: 1.45rem;
   font-weight: 700;
-  letter-spacing: -0.015em;
-  line-height: 1.32;
-  color: var(--blog-text-strong);
+  letter-spacing: -0.02em;
+  line-height: 1.3;
+  color: var(--ink);
+  transition: color 0.15s ease;
 }
-.notion-h1 {
-  font-size: 1.75rem;
-  margin-top: 2em;
-}
-.notion-h2 {
-  font-size: 1.4rem;
-  margin-top: 1.7em;
-}
-.notion-h3 {
-  font-size: 1.18rem;
-  margin-top: 1.35em;
+.post-date {
+  display: block;
+  margin-top: 8px;
+  font-size: 0.85rem;
+  color: var(--muted);
 }
 
-.notion-page-content strong,
-.notion-text strong {
-  color: var(--blog-text-strong);
+.notice {
+  color: var(--muted);
+  padding: 24px 0;
 }
-
-/* =========================================================
-   Links
-   ========================================================= */
-.notion-link {
-  color: var(--blog-accent);
-  border-bottom: 1px solid rgba(47, 111, 237, 0.28);
-  text-decoration: none;
-  transition: border-color 0.15s ease, background 0.15s ease;
-}
-.notion-link:hover {
-  border-bottom-color: var(--blog-accent);
-  background: var(--blog-accent-soft);
-}
-
-/* Inline subpage links */
-.notion-page-link {
-  border-radius: 10px;
-  transition: background 0.15s ease;
-}
-.notion-page-link:hover {
-  background: var(--blog-surface);
+.notice-detail {
+  font-size: 0.8rem;
+  font-family: var(--mono);
+  color: #b91c1c;
 }
 
 /* =========================================================
-   Callouts (Introduction page uses many)
+   Article (post / about)
    ========================================================= */
-.notion-callout {
-  border-radius: 12px;
-  border: 1px solid var(--blog-border);
-  background: var(--blog-surface);
-  padding: 16px 18px;
-  margin: 10px 0;
+.article {
+  padding: 48px 0 96px;
+}
+.back-link {
+  display: inline-block;
+  font-size: 0.9rem;
+  color: var(--muted);
+  margin-bottom: 32px;
+  transition: color 0.15s ease;
+}
+.back-link:hover {
+  color: var(--accent);
+}
+.article-cat {
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--accent);
+  margin-bottom: 14px;
+}
+.article-title {
+  margin: 0;
+  font-size: clamp(2rem, 5vw, 2.9rem);
+  font-weight: 800;
+  letter-spacing: -0.03em;
+  line-height: 1.15;
+  color: var(--ink);
+}
+.article-icon {
+  margin-right: 0.3em;
+}
+.article-date {
+  display: block;
+  margin-top: 16px;
+  font-size: 0.9rem;
+  color: var(--muted);
+}
+.article-cover {
+  margin: 36px 0 8px;
+  border-radius: 16px;
+  overflow: hidden;
+}
+.article-cover img {
+  width: 100%;
+  display: block;
+}
+.article-body {
+  margin-top: 36px;
+  font-size: 1.06rem;
+  line-height: 1.85;
 }
 
 /* =========================================================
-   Quote / divider / code
+   Notion block elements
    ========================================================= */
-.notion-quote {
-  border-left: 3px solid var(--blog-text-strong);
-  padding: 4px 0 4px 20px;
-  font-size: 1.05em;
-  color: var(--blog-text);
+.nx-p {
+  margin: 1.1em 0;
+}
+.nx-empty {
+  margin: 0.6em 0;
+}
+.nx-h {
+  color: var(--ink);
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  line-height: 1.3;
+}
+.nx-h1 {
+  font-size: 1.7rem;
+  margin: 1.8em 0 0.5em;
+}
+.nx-h2 {
+  font-size: 1.38rem;
+  margin: 1.6em 0 0.4em;
+}
+.nx-h3 {
+  font-size: 1.15rem;
+  margin: 1.4em 0 0.3em;
 }
 
-.notion-hr {
-  margin: 2.6em 0;
-  border: 0;
-  border-top: 1px solid var(--blog-border);
+.rt-link {
+  color: var(--accent);
+  border-bottom: 1px solid var(--accent-soft);
+  transition: border-color 0.15s ease;
 }
-
-.notion-code {
-  border-radius: 12px;
-  font-size: 0.88rem;
-  line-height: 1.6;
+.rt-link:hover {
+  border-bottom-color: var(--accent);
 }
-.notion-inline-code {
-  color: #c2410c;
-  background: #fbeee6;
+.rt-code,
+.nx-code code {
+  font-family: var(--mono);
+}
+.rt-code {
+  background: #f4f4f2;
   border-radius: 5px;
   padding: 0.1em 0.4em;
   font-size: 0.88em;
+  color: #b1361e;
 }
 
-/* =========================================================
-   Images / assets
-   ========================================================= */
-.notion-asset-wrapper img,
-.notion-asset-wrapper .notion-image {
+.nx-ul,
+.nx-ol {
+  margin: 1.1em 0;
+  padding-left: 1.4em;
+}
+.nx-ul li,
+.nx-ol li {
+  margin: 0.35em 0;
+}
+
+.nx-quote {
+  margin: 1.4em 0;
+  padding: 4px 0 4px 22px;
+  border-left: 3px solid var(--line-strong);
+  font-size: 1.1em;
+  color: var(--ink);
+}
+
+.nx-callout {
+  display: flex;
+  gap: 12px;
+  margin: 1.4em 0;
+  padding: 18px 20px;
+  background: #faf9f7;
+  border: 1px solid var(--line);
   border-radius: 12px;
 }
-
-/* =========================================================
-   Collections (Posts gallery) -> blog cards
-   ========================================================= */
-.notion-collection {
-  margin: 1.2em 0;
+.nx-callout-ico {
+  font-size: 1.2em;
+  line-height: 1.6;
 }
-.notion-collection-header {
-  padding: 10px 0;
+.nx-callout-body > :first-child {
+  margin-top: 0;
 }
-.notion-collection-header-title {
-  font-weight: 700;
-  font-size: 1.25rem;
-  letter-spacing: -0.01em;
-  color: var(--blog-text-strong);
+.nx-callout-body > :last-child {
+  margin-bottom: 0;
 }
 
-.notion-gallery-grid {
-  grid-gap: 22px;
-  grid-template-columns: repeat(auto-fill, minmax(248px, 1fr));
+.nx-code {
+  margin: 1.5em 0;
+  padding: 18px 20px;
+  background: #1b1d22;
+  color: #e7e7e7;
+  border-radius: 12px;
+  overflow-x: auto;
+  font-size: 0.88rem;
+  line-height: 1.65;
 }
 
-.notion-collection-card {
-  background: #fff;
-  border: 1px solid var(--blog-border);
-  border-radius: 16px;
-  box-shadow: 0 1px 2px rgba(20, 20, 20, 0.04);
-  overflow: hidden;
-  transition: transform 0.18s ease, box-shadow 0.18s ease,
-    border-color 0.18s ease;
+.nx-hr {
+  margin: 2.6em 0;
+  border: 0;
+  border-top: 1px solid var(--line);
 }
-.notion-collection-card:hover {
-  transform: translateY(-4px);
-  box-shadow: 0 16px 32px -16px rgba(20, 20, 20, 0.28);
-  border-color: #e0e0dd;
+
+.nx-figure {
+  margin: 1.8em 0;
 }
-.notion-collection-card-cover {
-  border-bottom: 1px solid var(--blog-border);
+.nx-figure img {
+  width: 100%;
+  border-radius: 12px;
+  display: block;
 }
-.notion-collection-card-cover img {
-  transition: transform 0.4s ease;
+.nx-figure figcaption {
+  margin-top: 10px;
+  font-size: 0.85rem;
+  color: var(--muted);
+  text-align: center;
 }
-.notion-collection-card:hover .notion-collection-card-cover img {
-  transform: scale(1.04);
-}
-.notion-collection-card-body {
-  padding: 16px 18px;
-}
-.notion-collection-card-property {
+
+.nx-bookmark {
+  display: block;
+  margin: 1.4em 0;
+  padding: 14px 18px;
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  color: var(--accent);
   font-size: 0.95rem;
-  line-height: 1.5;
+  word-break: break-all;
 }
-.notion-collection-card-property:first-child {
-  font-weight: 700;
-  font-size: 1.02rem;
-  color: var(--blog-text-strong);
+
+.nx-todo {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  margin: 0.4em 0;
+}
+.nx-todo input {
+  margin-top: 0.45em;
+}
+.nx-todo-done {
+  color: var(--muted);
+  text-decoration: line-through;
+}
+
+.nx-toggle {
+  margin: 0.8em 0;
+}
+.nx-toggle summary {
+  cursor: pointer;
+  font-weight: 600;
+}
+
+.nx-columns {
+  display: flex;
+  gap: 28px;
+  margin: 1.4em 0;
+}
+.nx-column {
+  flex: 1 1 0;
+  min-width: 0;
+}
+
+.nx-table-wrap {
+  overflow-x: auto;
+  margin: 1.5em 0;
+}
+.nx-table {
+  border-collapse: collapse;
+  width: 100%;
+  font-size: 0.95rem;
+}
+.nx-table td {
+  border: 1px solid var(--line);
+  padding: 8px 12px;
+}
+
+.nx-pagelink {
+  display: inline-block;
+  margin: 0.5em 0;
+  color: var(--accent);
+  border-bottom: 1px solid var(--accent-soft);
+}
+
+.nx-equation {
+  font-family: var(--mono);
+  background: #f7f7f5;
+  padding: 12px 16px;
+  border-radius: 8px;
+  overflow-x: auto;
 }
 
 /* =========================================================
-   Misc tidy-ups
+   Footer
    ========================================================= */
-.notion-bookmark {
-  border-radius: 12px;
-  border-color: var(--blog-border);
+.site-footer {
+  border-top: 1px solid var(--line);
+  padding: 36px 0 64px;
+  margin-top: 48px;
 }
-.notion-collection-row {
-  border-color: var(--blog-border);
+.site-footer-inner {
+  max-width: var(--maxw-wide);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 16px;
+  flex-wrap: wrap;
+  font-size: 0.88rem;
+  color: var(--muted);
+}
+.site-footer-links {
+  display: flex;
+  gap: 18px;
+}
+.site-footer-links a:hover {
+  color: var(--accent);
 }
 
-/* Comfortable reading on phones */
-@media (max-width: 640px) {
-  .notion {
-    font-size: 16px;
+/* =========================================================
+   Responsive
+   ========================================================= */
+@media (max-width: 600px) {
+  body {
+    font-size: 17px;
   }
-  .notion-title {
-    font-size: 2rem;
+  .hero {
+    padding: 56px 0 36px;
   }
-  .notion-gallery-grid {
-    grid-template-columns: 1fr;
+  .post-link {
+    flex-direction: column-reverse;
+    align-items: flex-start;
+    gap: 14px;
+  }
+  .post-thumb {
+    width: 100%;
+    flex-basis: auto;
+    height: 180px;
+  }
+  .nx-columns {
+    flex-direction: column;
+    gap: 0;
+  }
+  .site-nav {
+    gap: 16px;
   }
 }
