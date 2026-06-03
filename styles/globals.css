@@ -75,7 +75,8 @@ a {
   background-size: cover;
   background-position: center 28%;
   background-repeat: no-repeat;
-  filter: sepia(0.34) contrast(0.96) brightness(1.03);
+  /* No sepia/color filter — the only tint comes from bgColor (the overlay
+     above), so site-config.js `bgColor` fully controls the background color. */
 }
 
 /* =========================================================
