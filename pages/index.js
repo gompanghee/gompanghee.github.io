@@ -1,5 +1,5 @@
 import Head from 'next/head'
-import { getPosts } from '../lib/notion-api'
+import { getHomeData } from '../lib/notion-api'
 import {
   siteName,
   siteNameKo,
@@ -9,20 +9,20 @@ import {
 } from '../lib/site-config'
 import SiteHeader from '../components/SiteHeader'
 import SiteFooter from '../components/SiteFooter'
-import PostCard from '../components/PostCard'
+import CategorySection from '../components/CategorySection'
 
 export async function getStaticProps() {
-  let posts = []
+  let categories = []
   let error = null
   try {
-    posts = await getPosts()
+    categories = await getHomeData()
   } catch (e) {
     error = String((e && e.message) || e)
   }
-  return { props: { posts, error }, revalidate: 60 }
+  return { props: { categories, error }, revalidate: 60 }
 }
 
-export default function Home({ posts, error }) {
+export default function Home({ categories, error }) {
   return (
     <>
       <Head>
@@ -48,19 +48,14 @@ export default function Home({ posts, error }) {
 
           {error ? (
             <p className="notice">
-              글 목록을 불러오지 못했어요. (NOTION_TOKEN 설정 및 페이지 공유를 확인해
-              주세요.)
+              글 목록을 불러오지 못했어요.
               <br />
               <span className="notice-detail">{error}</span>
             </p>
-          ) : posts.length === 0 ? (
-            <p className="notice">아직 발행된 글이 없습니다.</p>
+          ) : categories.length === 0 ? (
+            <p className="notice">아직 카테고리가 없습니다.</p>
           ) : (
-            <ul className="post-list">
-              {posts.map((p) => (
-                <PostCard key={p.id} post={p} />
-              ))}
-            </ul>
+            categories.map((c) => <CategorySection key={c.id} category={c} />)
           )}
         </section>
       </main>
