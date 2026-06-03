@@ -501,6 +501,95 @@ a {
 }
 
 /* =========================================================
+   Category cards (home) + category page
+   ========================================================= */
+.ccard-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 24px;
+  margin-top: 8px;
+}
+.ccard {
+  display: block;
+  background: #fff;
+  border: 1px solid var(--line);
+  border-radius: 18px;
+  overflow: hidden;
+  transition: transform 0.18s ease, box-shadow 0.18s ease, border-color 0.18s ease;
+}
+.ccard:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 18px 38px -18px rgba(20, 20, 20, 0.3);
+  border-color: #e0e0dd;
+}
+.ccard-cover {
+  aspect-ratio: 16 / 9;
+  overflow: hidden;
+  background: linear-gradient(135deg, #f3f3f1, #e9e9e6);
+}
+.ccard-cover img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.4s ease;
+}
+.ccard:hover .ccard-cover img {
+  transform: scale(1.04);
+}
+.ccard-foot {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 18px 22px;
+}
+.ccard-title {
+  font-size: 1.3rem;
+  font-weight: 800;
+  letter-spacing: -0.02em;
+  color: var(--ink);
+}
+.ccard-arrow {
+  color: var(--muted);
+  transition: transform 0.2s ease, color 0.2s ease;
+}
+.ccard:hover .ccard-arrow {
+  color: var(--accent);
+  transform: translateX(3px);
+}
+
+.category-page {
+  padding: 40px 0 96px;
+}
+.category-head {
+  margin-bottom: 38px;
+}
+.category-cover {
+  margin-bottom: 24px;
+  border-radius: 16px;
+  overflow: hidden;
+  max-height: 260px;
+}
+.category-cover img {
+  width: 100%;
+  display: block;
+  object-fit: cover;
+}
+.category-title {
+  margin: 0;
+  font-size: clamp(2rem, 5vw, 2.8rem);
+  font-weight: 800;
+  letter-spacing: -0.03em;
+  color: var(--ink);
+}
+.category-count {
+  display: block;
+  margin-top: 10px;
+  font-size: 0.9rem;
+  color: var(--muted);
+}
+
+/* =========================================================
    Category sections + post card grid (home)
    ========================================================= */
 .cat-section {
@@ -595,6 +684,10 @@ a {
    Responsive
    ========================================================= */
 @media (max-width: 600px) {
+  .ccard-grid {
+    grid-template-columns: 1fr;
+    gap: 18px;
+  }
   .post-grid {
     grid-template-columns: repeat(2, 1fr);
     gap: 18px 14px;

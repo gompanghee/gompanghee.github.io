@@ -1,0 +1,63 @@
+import Head from 'next/head'
+import Link from 'next/link'
+import { getCategory } from '../../lib/notion-api'
+import { siteName } from '../../lib/site-config'
+import SiteHeader from '../../components/SiteHeader'
+import SiteFooter from '../../components/SiteFooter'
+import PostGridCard from '../../components/PostGridCard'
+
+export async function getStaticPaths() {
+  return { paths: [], fallback: 'blocking' }
+}
+
+export async function getStaticProps({ params }) {
+  try {
+    const category = await getCategory(params.id)
+    if (!category) return { notFound: true, revalidate: 30 }
+    return { props: { category }, revalidate: 60 }
+  } catch (e) {
+    return { notFound: true, revalidate: 30 }
+  }
+}
+
+export default function CategoryPage({ category }) {
+  const count = category.posts?.length || 0
+  return (
+    <>
+      <Head>
+        <title>{`${category.title} · ${siteName}`}</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+      </Head>
+      <SiteHeader />
+
+      <main className="container category-page">
+        <Link href="/" className="back-link">
+          ← 카테고리
+        </Link>
+
+        <div className="category-head">
+          {category.cover ? (
+            <div className="category-cover">
+              {/* eslint-disable-next-line @next/next/no-img-element */}
+              <img src={category.cover} alt="" />
+            </div>
+          ) : null}
+          <h1 className="category-title">{category.title}</h1>
+          <span className="category-count">{count}개의 글</span>
+        </div>
+
+        {count > 0 ? (
+          <ul className="post-grid">
+            {category.posts.map((p) => (
+              <PostGridCard key={p.id} post={p} />
+            ))}
+          </ul>
+        ) : (
+          <p className="cat-empty">아직 발행된 글이 없습니다.</p>
+        )}
+      </main>
+
+      <SiteFooter />
+    </>
+  )
+}

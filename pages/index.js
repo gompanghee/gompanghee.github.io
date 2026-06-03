@@ -1,5 +1,5 @@
 import Head from 'next/head'
-import { getHomeData } from '../lib/notion-api'
+import { getCategories } from '../lib/notion-api'
 import {
   siteName,
   siteNameKo,
@@ -9,13 +9,13 @@ import {
 } from '../lib/site-config'
 import SiteHeader from '../components/SiteHeader'
 import SiteFooter from '../components/SiteFooter'
-import CategorySection from '../components/CategorySection'
+import CategoryCard from '../components/CategoryCard'
 
 export async function getStaticProps() {
   let categories = []
   let error = null
   try {
-    categories = await getHomeData()
+    categories = await getCategories()
   } catch (e) {
     error = String((e && e.message) || e)
   }
@@ -44,18 +44,22 @@ export default function Home({ categories, error }) {
         </section>
 
         <section className="writing">
-          <h2 className="section-label">Writing</h2>
+          <h2 className="section-label">Categories</h2>
 
           {error ? (
             <p className="notice">
-              글 목록을 불러오지 못했어요.
+              카테고리를 불러오지 못했어요.
               <br />
               <span className="notice-detail">{error}</span>
             </p>
           ) : categories.length === 0 ? (
             <p className="notice">아직 카테고리가 없습니다.</p>
           ) : (
-            categories.map((c) => <CategorySection key={c.id} category={c} />)
+            <div className="ccard-grid">
+              {categories.map((c) => (
+                <CategoryCard key={c.id} category={c} />
+              ))}
+            </div>
           )}
         </section>
       </main>
