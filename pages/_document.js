@@ -5,6 +5,8 @@ export default function Document() {
   return (
     <Html lang="ko" style={{ '--bg': bgColor }}>
       <Head>
+        <link rel="icon" type="image/png" href="/favicon.png" />
+        <link rel="apple-touch-icon" href="/favicon.png" />
         {/* Pretendard — clean, highly readable Korean/Latin web font */}
         <link
           rel="stylesheet"
