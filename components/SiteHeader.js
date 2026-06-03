@@ -17,6 +17,9 @@ export default function SiteHeader() {
           <a href={social.github} target="_blank" rel="noopener noreferrer">
             GitHub
           </a>
+          <a href={social.scholar} target="_blank" rel="noopener noreferrer">
+            Scholar
+          </a>
           <button
             type="button"
             className="lang-toggle"

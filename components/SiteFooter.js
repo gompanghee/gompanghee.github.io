@@ -16,6 +16,9 @@ export default function SiteFooter() {
           <a href={social.github} target="_blank" rel="noopener noreferrer">
             GitHub
           </a>
+          <a href={social.scholar} target="_blank" rel="noopener noreferrer">
+            Scholar
+          </a>
           <a href={social.kakao} target="_blank" rel="noopener noreferrer">
             Kakao
           </a>
