@@ -1,6 +1,12 @@
 import Head from 'next/head'
 import { getCategories } from '../lib/notion-api'
-import { siteName, siteNameKo, siteDescription } from '../lib/site-config'
+import {
+  siteName,
+  siteNameKo,
+  siteTagline,
+  siteTaglineEn,
+  siteDescription
+} from '../lib/site-config'
 import { useLang } from '../lib/i18n'
 import SiteHeader from '../components/SiteHeader'
 import SiteFooter from '../components/SiteFooter'
@@ -36,7 +42,7 @@ export default function Home({ categories, error }) {
       <main className="container">
         <section className="hero">
           <h1 className="hero-title">{name}</h1>
-          <p className="hero-tagline">{t.tagline}</p>
+          <p className="hero-tagline">{lang === 'ko' ? siteTagline : siteTaglineEn}</p>
         </section>
 
         <section className="writing">

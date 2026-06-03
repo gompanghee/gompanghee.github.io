@@ -153,14 +153,12 @@ a {
   color: var(--ink);
 }
 .hero-tagline {
-  margin: 22px 0 0;
-  font-size: 1.2rem;
-  color: var(--text);
-}
-.hero-tagline-en {
-  margin: 2px 0 0;
-  font-size: 1rem;
+  margin: 24px 0 0;
+  max-width: 640px;
+  font-size: 1.02rem;
+  line-height: 1.85;
   color: var(--muted);
+  white-space: pre-line; /* honor the line break in the bio */
 }
 
 /* =========================================================
