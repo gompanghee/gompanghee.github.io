@@ -1,6 +1,6 @@
 import Link from 'next/link'
 import RichText from './RichText'
-import { idNoDash } from '../lib/util'
+import { idNoDash, notionImage } from '../lib/util'
 
 // ---- individual block ----------------------------------------------------
 
@@ -61,14 +61,15 @@ function Block({ block }) {
     case 'divider':
       return <hr className="nx-hr" />
     case 'image': {
-      const url =
+      const raw =
         data.type === 'external' ? data.external?.url : data.file?.url
-      if (!url) return null
+      if (!raw) return null
+      const url = notionImage(raw, block.id, 1400)
       const caption = rtPlain(data.caption)
       return (
         <figure className="nx-figure">
           {/* eslint-disable-next-line @next/next/no-img-element */}
-          <img src={url} alt={caption || ''} loading="lazy" />
+          <img src={url} alt={caption || ''} loading="lazy" decoding="async" />
           {caption ? <figcaption>{caption}</figcaption> : null}
         </figure>
       )
