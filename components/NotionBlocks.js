@@ -10,7 +10,9 @@ function Block({ block }) {
 
   switch (type) {
     case 'paragraph': {
-      if (!data.rich_text?.length) return <p className="nx-p nx-empty" />
+      // Empty paragraph = an intentional blank line in Notion. Render a real
+      // line (nbsp) so consecutive blank lines actually separate paragraphs.
+      if (!data.rich_text?.length) return <p className="nx-p">{' '}</p>
       return (
         <p className="nx-p">
           <RichText value={data.rich_text} />

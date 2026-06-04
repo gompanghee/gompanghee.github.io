@@ -22,8 +22,17 @@ function colorStyle(color) {
   return COLOR[color] ? { color: COLOR[color] } : undefined
 }
 
+function withBreaks(text) {
+  const s = String(text)
+  if (!s.includes('\n')) return s
+  // Preserve soft line breaks (Shift+Enter) as <br/>.
+  return s
+    .split('\n')
+    .flatMap((part, i) => (i === 0 ? [part] : [<br key={`br${i}`} />, part]))
+}
+
 function decorate(text, a) {
-  let node = text
+  let node = withBreaks(text)
   if (a.code) node = <code className="rt-code">{node}</code>
   if (a.bold) node = <strong>{node}</strong>
   if (a.italic) node = <em>{node}</em>
