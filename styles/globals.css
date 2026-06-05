@@ -346,6 +346,54 @@ a {
   line-height: 1.85;
 }
 
+/* Prev / next post navigation */
+.post-nav {
+  display: flex;
+  justify-content: space-between;
+  gap: 16px;
+  margin-top: 56px;
+  padding-top: 28px;
+  border-top: 1px solid var(--line);
+}
+.post-nav-link {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  max-width: 48%;
+}
+.post-nav-link.next {
+  margin-left: auto;
+  text-align: right;
+  align-items: flex-end;
+}
+.post-nav-label {
+  font-size: 0.82rem;
+  color: var(--muted);
+}
+.post-nav-title {
+  font-size: 1rem;
+  font-weight: 700;
+  letter-spacing: -0.01em;
+  color: var(--ink);
+  transition: color 0.15s ease;
+}
+.post-nav-link:hover .post-nav-title {
+  color: var(--accent);
+}
+@media (max-width: 600px) {
+  .post-nav {
+    flex-direction: column;
+    gap: 20px;
+  }
+  .post-nav-link,
+  .post-nav-link.next {
+    max-width: 100%;
+    text-align: left;
+    align-items: flex-start;
+    margin-left: 0;
+  }
+}
+
 /* =========================================================
    Notion block elements
    ========================================================= */

@@ -34,6 +34,27 @@ export default function Article({ page, showMeta = true }) {
       <article className="article-body">
         <NotionBlocks blocks={page.blocks} />
       </article>
+
+      {page.prev || page.next ? (
+        <nav className="post-nav">
+          {page.prev ? (
+            <Link href={`/p/${page.prev.id}`} className="post-nav-link prev">
+              <span className="post-nav-label">← {t.prevPost}</span>
+              <span className="post-nav-title">{page.prev.title}</span>
+            </Link>
+          ) : (
+            <span />
+          )}
+          {page.next ? (
+            <Link href={`/p/${page.next.id}`} className="post-nav-link next">
+              <span className="post-nav-label">{t.nextPost} →</span>
+              <span className="post-nav-title">{page.next.title}</span>
+            </Link>
+          ) : (
+            <span />
+          )}
+        </nav>
+      ) : null}
     </main>
   )
 }
